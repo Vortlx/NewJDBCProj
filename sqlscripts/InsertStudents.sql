@@ -1,0 +1,76 @@
+﻿INSERT INTO students (name, family_name) VALUES('Norman', 'Hernandez');
+INSERT INTO students (name, family_name) VALUES('Roger', 'Evans');
+INSERT INTO students (name, family_name) VALUES('Diane', 'Newton');
+INSERT INTO students (name, family_name) VALUES('Katrina', 'Mcdonald');
+INSERT INTO students (name, family_name) VALUES('Regina', 'Banks');
+INSERT INTO students (name, family_name) VALUES('Betsy', 'Walters');
+INSERT INTO students (name, family_name) VALUES('Crystal', 'Parks');
+INSERT INTO students (name, family_name) VALUES('Yolanda', 'Rodriquez');
+INSERT INTO students (name, family_name) VALUES('Luther', 'Knight');
+INSERT INTO students (name, family_name) VALUES('Fred', 'Anderson');
+
+INSERT INTO students (name, family_name) VALUES('Joanna', 'Tyler');
+INSERT INTO students (name, family_name) VALUES('Walter', 'Wong');
+INSERT INTO students (name, family_name) VALUES('Willard', 'Cole');
+INSERT INTO students (name, family_name) VALUES('Lola', 'Schneider');
+INSERT INTO students (name, family_name) VALUES('Lucas', 'Farmer');
+INSERT INTO students (name, family_name) VALUES('Shari', 'Alexander');
+INSERT INTO students (name, family_name) VALUES('Mandy', 'Rogers');
+INSERT INTO students (name, family_name) VALUES('Anthony', 'Bowers');
+INSERT INTO students (name, family_name) VALUES('Gertrude', 'Shaw');
+INSERT INTO students (name, family_name) VALUES('Hector', 'Dixon');
+
+INSERT INTO students (name, family_name) VALUES('Stephanie', 'Mann');
+INSERT INTO students (name, family_name) VALUES('Brenda', 'Mccoy');
+INSERT INTO students (name, family_name) VALUES('Elizabeth', 'Mclaughlin');
+INSERT INTO students (name, family_name) VALUES('Caleb', 'Lopez');
+INSERT INTO students (name, family_name) VALUES('Vicky', 'Soto');
+INSERT INTO students (name, family_name) VALUES('Geraldine', 'Kim');
+INSERT INTO students (name, family_name) VALUES('Steven', 'Mills');
+INSERT INTO students (name, family_name) VALUES('Annie', 'Brewer');
+INSERT INTO students (name, family_name) VALUES('Ann', 'Payne');
+INSERT INTO students (name, family_name) VALUES('Marvin', 'Hodges');
+
+INSERT INTO students (name, family_name) VALUES('Orville', 'Carr');
+INSERT INTO students (name, family_name) VALUES('Wilson', 'Moss');
+INSERT INTO students (name, family_name) VALUES('Audrey', 'Moody');
+INSERT INTO students (name, family_name) VALUES('Tom', 'Webb');
+INSERT INTO students (name, family_name) VALUES('Antonio', 'Long');
+INSERT INTO students (name, family_name) VALUES('Nora', 'Henderson');
+INSERT INTO students (name, family_name) VALUES('Marion', 'Mathis');
+INSERT INTO students (name, family_name) VALUES('Crystal', 'Blair');
+INSERT INTO students (name, family_name) VALUES('Sonia', 'Holmes');
+INSERT INTO students (name, family_name) VALUES('Nicole', 'Ferguson');
+
+INSERT INTO students (name, family_name) VALUES('Elisa', 'Thomas');
+INSERT INTO students (name, family_name) VALUES('Orlando', 'Sharp');
+INSERT INTO students (name, family_name) VALUES('Holly', 'Alvarado');
+INSERT INTO students (name, family_name) VALUES('Roberta', 'Vasquez');
+INSERT INTO students (name, family_name) VALUES('Brittany', 'Ross');
+INSERT INTO students (name, family_name) VALUES('Rachel', 'Beck');
+INSERT INTO students (name, family_name) VALUES('Joe', 'Rowe');
+INSERT INTO students (name, family_name) VALUES('Caroline', 'Frank');
+INSERT INTO students (name, family_name) VALUES('Melanie', 'Huff');
+INSERT INTO students (name, family_name) VALUES('Raymond', 'Hansen');
+
+INSERT INTO students (name, family_name) VALUES('Gene', 'Fox');
+INSERT INTO students (name, family_name) VALUES('Leo', 'Erickson');
+INSERT INTO students (name, family_name) VALUES('Lorena', 'Bridges');
+INSERT INTO students (name, family_name) VALUES('Jerry', 'Harrison');
+INSERT INTO students (name, family_name) VALUES('Lindsey', 'Walker');
+INSERT INTO students (name, family_name) VALUES('Kari', 'Torres');
+INSERT INTO students (name, family_name) VALUES('Carlos', 'Walsh');
+INSERT INTO students (name, family_name) VALUES('Emily', 'Morgan');
+INSERT INTO students (name, family_name) VALUES('Maria', 'Mckenzie');
+INSERT INTO students (name, family_name) VALUES('Grady', 'Hill');
+
+INSERT INTO students (name, family_name) VALUES('Ollie', 'Ortiz');
+INSERT INTO students (name, family_name) VALUES('Lynn', 'Curtis');
+INSERT INTO students (name, family_name) VALUES('Jeffrey', 'Buchanan');
+INSERT INTO students (name, family_name) VALUES('Alvin', 'Matthews');
+INSERT INTO students (name, family_name) VALUES('Chester', 'Briggs');
+INSERT INTO students (name, family_name) VALUES('Billie', 'Williams');
+INSERT INTO students (name, family_name) VALUES('Tomas', 'Rogers');
+INSERT INTO students (name, family_name) VALUES('Darrel', 'Hicks');
+INSERT INTO students (name, family_name) VALUES('Ed', 'Thompson');
+INSERT INTO students (name, family_name) VALUES('Marlon', 'Mckenzie');
