@@ -1,11 +1,9 @@
-﻿source ./JDBCProj/sqlscripts/CreateStudents.sql;
-source ./JDBCProj/sqlscripts/CreateTeachers.sql;
-source ./JDBCProj/sqlscripts/CreateGroups.sql;
-source ./JDBCProj/sqlscripts/CreateStudentInGroup.sql;
-source ./JDBCProj/sqlscripts/CreateCurator.sql;
+﻿source ./sqlscripts/CreateTeachers.sql;
+source ./sqlscripts/CreateGroups.sql;
+source ./sqlscripts/CreateCurator.sql;
+source ./sqlscripts/CreateStudents.sql;
 
-source ./JDBCProj/sqlscripts/InsertStudents.sql;
-source ./JDBCProj/sqlscripts/InsertTeachers.sql;
-source ./JDBCProj/sqlscripts/InsertGroups.sql;
-source ./JDBCProj/sqlscripts/InsertStudentInGroup.sql;
-source ./JDBCProj/sqlscripts/InsertCurator.sql;
+source ./sqlscripts/InsertTeachers.sql;
+source ./sqlscripts/InsertGroups.sql;
+source ./sqlscripts/InsertCurator.sql;
+source ./sqlscripts/InsertStudents.sql;
