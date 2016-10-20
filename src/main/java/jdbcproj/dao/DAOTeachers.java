@@ -1,4 +1,4 @@
-package jdbcproj.dao.daoteachers;
+package jdbcproj.dao;
 
 
 import java.sql.SQLException;

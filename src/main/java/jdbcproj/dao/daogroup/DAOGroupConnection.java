@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.List;
 import java.util.ArrayList;
 
+import jdbcproj.dao.DAOGroup;
 import jdbcproj.data.Group;
 import jdbcproj.data.Student;
 
@@ -22,6 +23,7 @@ import static jdbcproj.resources.Resources.getProperty;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
+@Deprecated
 public class DAOGroupConnection implements DAOGroup {
 	
 	static{
@@ -41,7 +43,6 @@ public class DAOGroupConnection implements DAOGroup {
 	 * @throw SQLException
 	 * @return Nothing
 	 * */
-	@Override
 	public void add(String name) throws SQLException{
 
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
@@ -64,7 +65,6 @@ public class DAOGroupConnection implements DAOGroup {
 	 * @throw SQLException
 	 * @return Nothing
 	 * */
-	@Override
 	public void update(String name, String newName) throws SQLException{
 		
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
@@ -88,7 +88,6 @@ public class DAOGroupConnection implements DAOGroup {
 	 * @throw SQLException
 	 * @return Nothing
 	 * */
-	@Override
 	public void delete(String name) throws SQLException{
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
 
@@ -128,7 +127,6 @@ public class DAOGroupConnection implements DAOGroup {
 	 * @param name Name of group
 	 * @return Group
 	 * */
-	@Override
 	public Group getByName(String name) throws SQLException{
 
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
@@ -186,7 +184,6 @@ public class DAOGroupConnection implements DAOGroup {
 	 * @throw SQLException
 	 * @return List of name (String) of all groups
 	 * */
-	@Override
 	public List<Group> getAll() throws SQLException{
 		
 		Connection conn = DriverManager.getConnection(getProperty("URL"));

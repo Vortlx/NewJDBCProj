@@ -9,8 +9,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
+import jdbcproj.dao.DAOStudents;
 import jdbcproj.data.Group;
-import jdbcproj.data.Person;
 import jdbcproj.data.Student;
 
 import java.util.ArrayList;
@@ -23,6 +23,7 @@ import static jdbcproj.resources.Resources.getProperty;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
+@Deprecated
 public class DAOStudentsConnection implements DAOStudents{
 
 	static{
@@ -45,7 +46,6 @@ public class DAOStudentsConnection implements DAOStudents{
 	 *  @throws SQLException
 	 *  @return Nothing.
 	 * */
-	@Override
 	public void add(String name, String familyName, String groupName) throws SQLException {
 
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
@@ -112,7 +112,6 @@ public class DAOStudentsConnection implements DAOStudents{
 	 * @throws SQLException
 	 * @return Nothing.
 	 * */
-	@Override
 	public void update(String oldName, String oldFamilyName, String newName, String newFamilyName) throws SQLException {
 
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
@@ -141,7 +140,6 @@ public class DAOStudentsConnection implements DAOStudents{
 	 * @throws SQLException
 	 * @return Nothing
 	 * */
-	@Override
 	public void updateGroup(String name, String familyName, String newGroupName) throws SQLException{
 
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
@@ -203,7 +201,6 @@ public class DAOStudentsConnection implements DAOStudents{
 	 * @throws SQLException
 	 * @return Nothing
 	 * */
-	@Override
 	public void delete(String name, String familyName) throws SQLException {
 		
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
@@ -226,7 +223,6 @@ public class DAOStudentsConnection implements DAOStudents{
 	 * @throws SQLException
 	 * @return List of persons
 	 * */
-	@Override
 	public List<Student> getAll() throws SQLException {
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
 
@@ -267,7 +263,6 @@ public class DAOStudentsConnection implements DAOStudents{
 	 * @throws SQLException
 	 * @return List of students who have a specific name
 	 * */
-	@Override
 	public List<Student> getByName(String name) throws SQLException {
 
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
@@ -310,7 +305,6 @@ public class DAOStudentsConnection implements DAOStudents{
 	 * @throws SQLException
 	 * @return List of students who have a specific family name
 	 * */
-	@Override
 	public List<Student> getByFamilyName(String familyName) throws SQLException {
 
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
@@ -354,7 +348,6 @@ public class DAOStudentsConnection implements DAOStudents{
 	 * @throws SQLException
 	 * @return List of students who have specific name and specific family name
 	 * */
-	@Override
 	public List<Student> getStudent(String name, String familyName) throws SQLException{
 
 		Connection conn = DriverManager.getConnection(getProperty("URL"));

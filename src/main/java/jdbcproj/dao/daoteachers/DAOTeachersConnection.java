@@ -9,8 +9,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
+import jdbcproj.dao.DAOTeachers;
 import jdbcproj.data.Group;
-import jdbcproj.data.Person;
 import jdbcproj.data.Teacher;
 
 import java.util.ArrayList;
@@ -23,6 +23,7 @@ import static jdbcproj.resources.Resources.getProperty;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
+@Deprecated
 public class DAOTeachersConnection implements DAOTeachers{
 
 	static{
@@ -45,7 +46,6 @@ public class DAOTeachersConnection implements DAOTeachers{
 	 *  @throws SQLException
 	 *  @return Nothing.
 	 * */
-	@Override
 	public void add(String name, String familyName, Group... groups) throws SQLException {
 
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
@@ -105,7 +105,6 @@ public class DAOTeachersConnection implements DAOTeachers{
 	 * @throws SQLException
 	 * @return Nothing
 	 * */
-	@Override
 	public void addGroup(String name, String familyName, String groupName) throws SQLException{
 
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
@@ -168,7 +167,6 @@ public class DAOTeachersConnection implements DAOTeachers{
 	 * @throws SQLException
 	 * @return Nothing.
 	 * */
-	@Override
 	public void update(String oldName, String oldFamilyName, String newName, String newFamilyName) throws SQLException {
 
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
@@ -196,7 +194,6 @@ public class DAOTeachersConnection implements DAOTeachers{
 	 * @throws SQLException
 	 * @return Nothing
 	 * */
-	@Override
 	public void delete(String name, String familyName) throws SQLException {
 		
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
@@ -223,7 +220,6 @@ public class DAOTeachersConnection implements DAOTeachers{
 	 * @throws SQLException
 	 * @return Nothing
 	 * */
-	@Override
 	public void deleteCurator(String name, String familyName, String groupName) throws SQLException{
 
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
@@ -283,7 +279,6 @@ public class DAOTeachersConnection implements DAOTeachers{
 	 * @throws SQLException
 	 * @return List of teachers who have a specific name
 	 * */
-	@Override
 	public List<Teacher> getByName(String name) throws SQLException {
 
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
@@ -341,7 +336,6 @@ public class DAOTeachersConnection implements DAOTeachers{
 	 * @throws SQLException
 	 * @return List of teachers who have a specific family name
 	 * */
-	@Override
 	public List<Teacher> getByFamilyName(String familyName) throws SQLException {
 
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
@@ -400,7 +394,6 @@ public class DAOTeachersConnection implements DAOTeachers{
 	 * @throws SQLException
 	 * @return List of teachers who have specific name and specific family name
 	 * */
-	@Override
 	public List<Teacher> getTeacher(String name, String familyName) throws SQLException{
 
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
@@ -458,7 +451,6 @@ public class DAOTeachersConnection implements DAOTeachers{
 	 * @throws SQLException
 	 * @return List of teachers
 	 * */
-	@Override
 	public List<Teacher> getAll() throws SQLException {
 
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
@@ -514,9 +506,8 @@ public class DAOTeachersConnection implements DAOTeachers{
 	 * @param groupName Name of group
 	 *
 	 * @throws SQLException
-	 * @retunr List List of teacher
+	 * @return List List of teacher
 	 * */
-	@Override
 	public List<Teacher> getByGroup(String groupName) throws SQLException{
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
 
