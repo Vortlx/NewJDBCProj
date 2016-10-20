@@ -1,8 +1,17 @@
 package jdbcproj.data;
 
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 /**
@@ -11,92 +20,70 @@ import java.util.ArrayList;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
+@Entity
+@Table(name="groups")
 public class Group {
 
+    @Id
+    @Column(name="id")
 	int id;
+    
+    @Column(name="name")
 	private String name;
-	private List<Student> students;
+    
+    @OneToMany(mappedBy="group")
+	private Set<Student> students;
+    
+    @ManyToMany
+    @JoinTable(name="curator", 
+            joinColumns={@JoinColumn(name="id_group")}, 
+            inverseJoinColumns={@JoinColumn(name="id_teacher")})
+	private Set<Teacher> teachers;
 	
-	/**
-	 * Create undefined group
-	 * */
 	public Group(){
-		id = -1;
-		name = "";
-		students = new ArrayList<Student>();
+		
 	}
 	
-	/**
-	 * Create specific group without students.
-	 * 
-	 * @param name Name of group
-	 * */
 	public Group(int id, String name){
 		this.id = id;
 		this.name = name;
-		students = new ArrayList<Student>();
-	}
-	
-	/**
-	 * Create specific group with list of students.
-	 * 
-	 * @param name Name of group
-	 * @param students List of students which in this group
-	 * */
-	public Group(int id, String name, List<Student> students){
-		this.id = id;
-		this.name = name;
-		this.students = students;
+		students = new HashSet<Student>();
+		teachers = new HashSet<Teacher>();
 	}
 
-	/**
-	 * Method return id of group
-	 *
-	 * @return int ID of group
-	 * */
 	public int getId() {
 		return id;
+	}
+	
+	public void setId(int id) {
+	    this.id = id;
 	}
 
 	public void addStudent(Student student){
 		students.add(student);
 	}
 	
-	/**
-	 * Return name of group
-	 * 
-	 * @return String Name of group
-	 * */
 	public String getName() {
 		return name;
 	}
 
-	/**
-	 * Change old name on new name of group
-	 * 
-	 * @param name New name of group
-	 * @return Nothing
-	 * */
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	/**
-	 * Return list of students which in this group
-	 * 
-	 * @return List List of students
-	 * */	
-	public List<Student> getStudents() {
+	public Set<Student> getStudents() {
 		return students;
 	}
 
-	/**
-	 * Change old list students on new list students
-	 * 
-	 * @param students List of students
-	 * @return Nothing
-	 * */
-	public void setStudents(List<Student> students) {
+	public void setStudents(Set<Student> students) {
 		this.students = students;
 	}
+
+    public Set<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(Set<Teacher> teachers) {
+        this.teachers = teachers;
+    }
 }
