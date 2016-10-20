@@ -4,7 +4,9 @@ package jdbcproj.data;
 import java.util.Set;
 import java.util.HashSet;
 
+import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 
 /**
@@ -13,6 +15,8 @@ import javax.persistence.ManyToMany;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
+@Entity
+@Table(name="teachers")
 public class Teacher extends Person {
 
     @ManyToMany(mappedBy="teachers")

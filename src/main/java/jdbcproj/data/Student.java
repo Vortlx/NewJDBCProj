@@ -1,8 +1,10 @@
 package jdbcproj.data;
 
 
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 
 /**
@@ -11,6 +13,8 @@ import javax.persistence.ManyToOne;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
+@Entity
+@Table(name="students")
 public class Student extends Person {
 
     @ManyToOne
