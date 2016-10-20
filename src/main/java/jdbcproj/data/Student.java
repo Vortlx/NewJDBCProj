@@ -1,7 +1,9 @@
 package jdbcproj.data;
 
+
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
 
 /**
  * This class describe student.
@@ -17,7 +19,6 @@ public class Student extends Person {
 
     public Student(){
         super();
-        group = new Group();
     }
 
     public Student(int id, String name, String familyName, Group group){

@@ -1,8 +1,10 @@
 package jdbcproj.data;
 
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+
 
 /**
  * This abstract class describe a person. For example student or teacher.
