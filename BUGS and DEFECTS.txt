@@ -5,3 +5,7 @@
 3. For search not used regular expression.
 
 4. In DAO sources not perform DRY. For example in DAOTeacher.deleteCurator method.
+
+5. Don't work methods addGroup and deleteCurator in DAOTeacherHibernate
+
+6. Hibernate n + 1 problem

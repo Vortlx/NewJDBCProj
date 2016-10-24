@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Set;
 
+import jdbcproj.dao.DAOTeacher;
+import jdbcproj.dao.daoteacher.DAOTeacherHibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -25,18 +27,34 @@ import jdbcproj.hibernateutil.HibernateUtil;
 public class Main{
 	public static void main(String[] args){
 
-	    DAOGroup daoGroup = new DAOGroupHibernate(HibernateUtil.getSessionFactory());
-	    
+	    DAOTeacher daoTeacher = new DAOTeacherHibernate(HibernateUtil.getSessionFactory());
+		DAOGroup daoGroup = new DAOGroupHibernate(HibernateUtil.getSessionFactory());
+
 	    try{
-	        List<Group> groups = daoGroup.getAll();
-	        
-	        List<Student> students = groups.get(0).getStudents();
-	        for(Student student: students){
-	            System.out.println(student.getName() + " " + student.getFamilyName());
-	        }
+
+	    	Teacher teacher = daoTeacher.getTeacher("Cecilia", "Fleming").get(0);
+			Group group = daoGroup.getByName("111");
+
+			daoTeacher.addGroup(teacher.getId(), group.getName());
+
+			teacher = daoTeacher.getTeacher("Cecilia", "Fleming").get(0);
+			Set<Group> groups = teacher.getGroups();
+
+
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println("WOW!!!!");
+			System.out.println();
+			System.out.println(groups.size());
+			for(Group i: groups){
+				System.out.println(i.getName());
+			}
+
 	    }catch(SQLException e){
 	        e.printStackTrace();
-	    }
-
+	    }finally{
+	    	HibernateUtil.closeSessionFactory();
+		}
 	}
 }

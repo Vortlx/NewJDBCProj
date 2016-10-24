@@ -4,7 +4,6 @@ package jdbcproj.data;
 import java.util.Set;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -35,10 +34,10 @@ public class Group {
     @Column(name="name")
 	private String name;
     
-    @OneToMany(mappedBy="group")
-	private List<Student> students;
+    @OneToMany(fetch=FetchType.EAGER, mappedBy="group")
+	private Set<Student> students;
     
-    @ManyToMany(cascade=CascadeType.ALL)
+    @ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(name="curator", 
             joinColumns={@JoinColumn(name="id_group")}, 
             inverseJoinColumns={@JoinColumn(name="id_teacher")})
@@ -51,7 +50,7 @@ public class Group {
 	public Group(int id, String name){
 		this.id = id;
 		this.name = name;
-		students = new ArrayList<Student>();
+		students = new HashSet<Student>();
 		teachers = new HashSet<Teacher>();
 	}
 
@@ -75,11 +74,11 @@ public class Group {
 		this.name = name;
 	}
 
-	public List<Student> getStudents() {
+	public Set<Student> getStudents() {
 		return students;
 	}
 
-	public void setStudents(List<Student> students) {
+	public void setStudents(HashSet<Student> students) {
 		this.students = students;
 	}
 
@@ -97,8 +96,8 @@ public class Group {
         int result = 1;
         result = prime * result + id;
         result = prime * result + ((name == null) ? 0 : name.hashCode());
-        result = prime * result + ((students == null) ? 0 : students.hashCode());
-        result = prime * result + ((teachers == null) ? 0 : teachers.hashCode());
+        //result = prime * result + ((students == null) ? 0 : students.hashCode());
+        //result = prime * result + ((teachers == null) ? 0 : teachers.hashCode());
         return result;
     }
 

@@ -94,7 +94,7 @@ public class DAOStudentHibernate implements DAOStudent{
         
         String queryString = "from Student";
         Query query = session.createQuery(queryString);
-        List<Student> students = (List<Student>) query.getResultList();
+        List<Student> students = query.getResultList();
         
         session.getTransaction().commit();
         
@@ -109,7 +109,7 @@ public class DAOStudentHibernate implements DAOStudent{
         String queryString = "from Student where name = :name";
         Query query = session.createQuery(queryString);
         query.setParameter("name", name);
-        List<Student> students = (List<Student>) query.getResultList();
+        List<Student> students = query.getResultList();
         
         session.getTransaction().commit();
         
@@ -124,7 +124,7 @@ public class DAOStudentHibernate implements DAOStudent{
         String queryString = "from Student where familyName = :familyName";
         Query query = session.createQuery(queryString);
         query.setParameter("familyName", familyName);
-        List<Student> students = (List<Student>) query.getResultList();
+        List<Student> students = query.getResultList();
         
         session.getTransaction().commit();
         
@@ -140,7 +140,7 @@ public class DAOStudentHibernate implements DAOStudent{
         Query query = session.createQuery(queryString);
         query.setParameter("name", name);
         query.setParameter("familyName", familyName);
-        List<Student> students = (List<Student>) query.getResultList();
+        List<Student> students = query.getResultList();
         
         session.getTransaction().commit();
         

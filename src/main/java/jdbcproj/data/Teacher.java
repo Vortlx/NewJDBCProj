@@ -4,10 +4,7 @@ package jdbcproj.data;
 import java.util.Set;
 import java.util.Arrays;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 /**
@@ -20,7 +17,7 @@ import javax.persistence.Table;
 @Table(name="teachers")
 public class Teacher extends Person {
 
-    @ManyToMany(mappedBy="teachers")
+    @ManyToMany(fetch=FetchType.EAGER, cascade= CascadeType.ALL, mappedBy="teachers")
     private Set<Group> groups;
 
     public Teacher(){
@@ -52,7 +49,7 @@ public class Teacher extends Person {
     public int hashCode() {
         final int prime = 31;
         int result = super.hashCode();
-        result = prime * result + ((groups == null) ? 0 : groups.hashCode());
+        //result = prime * result + ((groups == null) ? 0 : groups.hashCode());
         return result;
     }
 
