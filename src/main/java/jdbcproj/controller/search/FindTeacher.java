@@ -1,9 +1,10 @@
 package jdbcproj.controller.search;
 
 
-import jdbcproj.dao.DAOTeachers;
-import jdbcproj.dao.daoteachers.DAOTeachersConnection;
+import jdbcproj.dao.DAOTeacher;
+import jdbcproj.dao.daoteacher.DAOTeacherHibernate;
 import jdbcproj.data.Teacher;
+import jdbcproj.hibernateutil.HibernateUtil;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -28,7 +29,7 @@ public class FindTeacher extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
-        DAOTeachers connToTeacher = new DAOTeachersConnection();
+        DAOTeacher connToTeacher = new DAOTeacherHibernate(HibernateUtil.getSessionFactory());
 
         String name = req.getParameter("name");
         String familyName = req.getParameter("familyName");

@@ -6,7 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jdbcproj.dao.DAOGroup;
-import jdbcproj.dao.daogroup.DAOGroupConnection;
+import jdbcproj.dao.daogroup.DAOGroupHibernate;
+import jdbcproj.hibernateutil.HibernateUtil;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -27,7 +28,7 @@ public class DeleteGroup extends HttpServlet{
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
 		
-		DAOGroup dao = new DAOGroupConnection();
+		DAOGroup dao = new DAOGroupHibernate(HibernateUtil.getSessionFactory());
 		
 		String name = req.getParameter("name");
 		String mes = "";

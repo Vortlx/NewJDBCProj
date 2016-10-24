@@ -2,9 +2,10 @@ package jdbcproj.data;
 
 
 import java.util.Set;
-import java.util.HashSet;
+import java.util.Arrays;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -26,9 +27,9 @@ public class Teacher extends Person {
         super();
     }
 
-    public Teacher(int id, String name, String familyName){
+    public Teacher(int id, String name, String familyName, Group... groups){
         super(id, name, familyName);
-        groups = new HashSet<Group>();
+        this.groups.addAll(Arrays.asList(groups));
     }
 
     public Set<Group> getGroups() {
@@ -38,8 +39,37 @@ public class Teacher extends Person {
     public void addGroup(Group newGroup){
         groups.add(newGroup);
     }
+    
+    public void deleteGroup(Group group){
+        groups.remove(group);
+    }
 
-    public void set(HashSet<Group> newGroups){
+    public void setGroup(Set<Group> newGroups){
         groups = newGroups;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((groups == null) ? 0 : groups.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!super.equals(obj))
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Teacher other = (Teacher) obj;
+        if (groups == null) {
+            if (other.groups != null)
+                return false;
+        } else if (!groups.equals(other.groups))
+            return false;
+        return true;
     }
 }

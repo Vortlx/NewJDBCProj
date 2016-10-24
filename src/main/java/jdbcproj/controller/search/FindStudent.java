@@ -13,9 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdbcproj.dao.DAOStudents;
-import jdbcproj.dao.daostudents.DAOStudentsConnection;
+import jdbcproj.dao.DAOStudent;
+import jdbcproj.dao.daostudent.DAOStudentHibernate;
 import jdbcproj.data.Student;
+import jdbcproj.hibernateutil.HibernateUtil;
 
 /**
  * Servlet search students with specific properties
@@ -30,7 +31,7 @@ public class FindStudent extends HttpServlet{
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
 
-		DAOStudents connToStudent = new DAOStudentsConnection();
+		DAOStudent connToStudent = new DAOStudentHibernate(HibernateUtil.getSessionFactory());
 		
 		String name = req.getParameter("name");
 		String familyName = req.getParameter("familyName");

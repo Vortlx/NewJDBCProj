@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdbcproj.dao.DAOStudents;
-import jdbcproj.dao.daostudents.DAOStudentsConnection;
+import jdbcproj.dao.DAOStudent;
+import jdbcproj.dao.daostudent.DAOStudentHibernate;
+import jdbcproj.hibernateutil.HibernateUtil;
 
 /**
  * Servlet add student with specific name and family name into database
@@ -26,7 +27,7 @@ public class AddStudent extends HttpServlet{
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
 		
-		DAOStudents daoStudent = new DAOStudentsConnection();
+		DAOStudent daoStudent = new DAOStudentHibernate(HibernateUtil.getSessionFactory());
 		
 		String name = req.getParameter("name");
 		String familyName = req.getParameter("familyName");

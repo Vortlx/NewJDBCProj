@@ -12,9 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdbcproj.dao.DAOTeachers;
-import jdbcproj.dao.daoteachers.DAOTeachersConnection;
+import jdbcproj.dao.DAOTeacher;
+import jdbcproj.dao.daoteacher.DAOTeacherHibernate;
 import jdbcproj.data.Teacher;
+import jdbcproj.hibernateutil.HibernateUtil;
 
 /**
  * Servlet search teachers who curatoring specific group
@@ -29,7 +30,7 @@ public class FindTeachersByGroup extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
     	
-    	DAOTeachers dao = new DAOTeachersConnection();
+    	DAOTeacher dao = new DAOTeacherHibernate(HibernateUtil.getSessionFactory());
 
     	try{
     		String groupName = req.getParameter("groupName");

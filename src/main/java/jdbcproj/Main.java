@@ -1,8 +1,16 @@
 package jdbcproj;
 
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Set;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import jdbcproj.dao.DAOGroup;
+import jdbcproj.dao.DAOStudent;
+import jdbcproj.dao.daogroup.DAOGroupHibernate;
+import jdbcproj.dao.daostudent.DAOStudentHibernate;
 import jdbcproj.data.Group;
 import jdbcproj.data.Student;
 import jdbcproj.data.Teacher;
@@ -17,32 +25,18 @@ import jdbcproj.hibernateutil.HibernateUtil;
 public class Main{
 	public static void main(String[] args){
 
-	    SessionFactory sessionFactory = null;
+	    DAOGroup daoGroup = new DAOGroupHibernate(HibernateUtil.getSessionFactory());
 	    
 	    try{
-	        sessionFactory = HibernateUtil.getSessionFactory();
+	        List<Group> groups = daoGroup.getAll();
 	        
-	        Session session = sessionFactory.getCurrentSession();
-	        session.beginTransaction();
-	        
-	        Group group = (Group) session.get(Group.class, 4);
-	        
-	        System.out.println();
-            System.out.println("Teachers: \n");
-            for(Teacher teacher: group.getTeachers()){
-                System.out.println(teacher.getName() + " " + teacher.getFamilyName());
-            }
-	        
-	        System.out.println();
-	        System.out.println("Students: \n");
-	        for(Student student: group.getStudents()){
+	        List<Student> students = groups.get(0).getStudents();
+	        for(Student student: students){
 	            System.out.println(student.getName() + " " + student.getFamilyName());
 	        }
-	        
-	        session.getTransaction().commit();
-	    }finally{
-	        if(sessionFactory != null && sessionFactory.isOpen())
-	            HibernateUtil.closeSessionFactory();
+	    }catch(SQLException e){
+	        e.printStackTrace();
 	    }
+
 	}
 }

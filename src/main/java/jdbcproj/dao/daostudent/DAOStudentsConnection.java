@@ -1,4 +1,4 @@
-package jdbcproj.dao.daostudents;
+package jdbcproj.dao.daostudent;
 
 
 import java.sql.Connection;
@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-import jdbcproj.dao.DAOStudents;
+import jdbcproj.dao.DAOStudent;
 import jdbcproj.data.Group;
 import jdbcproj.data.Student;
 
@@ -24,7 +24,7 @@ import static jdbcproj.resources.Resources.getProperty;
  * @since 2016-09-19
  * */
 @Deprecated
-public class DAOStudentsConnection implements DAOStudents{
+public class DAOStudentsConnection implements DAOStudent{
 
 	static{
 		try{
@@ -35,9 +35,9 @@ public class DAOStudentsConnection implements DAOStudents{
 	}
 
 	/**
-	 * This method insert data into students table.
+	 * This method add new student into students table. And this student will be contain in specific group.
 	 *
-	 * @see DAOStudents#add(String, String, String)
+	 * @see DAOStudent#add(String, String, String)
 	 *
 	 *  @param name Name of student
 	 *  @param familyName Family Name of student
@@ -66,7 +66,6 @@ public class DAOStudentsConnection implements DAOStudents{
 			conn.close();
 			throw (new SQLException());
 		}
-
 		rs.close();
 		statement.close();
 
@@ -100,26 +99,24 @@ public class DAOStudentsConnection implements DAOStudents{
 	}
 
 	/**
-	 * This method update data into students table.
+	 * This method update data in students table.
 	 *
-	 * @see DAOStudents#update(String, String, String, String)
+	 * @see DAOStudent#update(String, String, String, String)
 	 *
-	 * @param oldName Old name of student
-	 * @param oldFamilyName Old family name of student
+	 * @param studentID ID of student
 	 * @param newName New name of student
 	 * @param newFamilyName New family name of student
 	 *
 	 * @throws SQLException
 	 * @return Nothing.
 	 * */
-	public void update(String oldName, String oldFamilyName, String newName, String newFamilyName) throws SQLException {
+	public void update(int studentID, String newName, String newFamilyName) throws SQLException {
 
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
 		
-		String query = "UPDATE students SET name = ?, family_name = ? WHERE name = ? AND family_name = ?";
+		String query = "UPDATE students SET name = ?, family_name = ? WHERE id = ?";
 		PreparedStatement statement = conn.prepareStatement(query);
-		statement.setString(3, oldName);
-		statement.setString(4, oldFamilyName);
+		statement.setInt(3, studentID);
 		statement.setString(1, newName);
 		statement.setString(2, newFamilyName);
 		statement.executeUpdate();
@@ -131,44 +128,26 @@ public class DAOStudentsConnection implements DAOStudents{
 	/**
 	 * Method change current group of student on new group
 	 *
-	 * @see DAOStudents#updateGroup(String, String, String)
+	 * @see DAOStudent#updateGroup(String, String, String)
 	 *
-	 * @param name Name of student
-	 * @param familyName Family name of student
+	 * @param studentID ID of student
 	 * @param newGroupName Name of new group
 	 *
 	 * @throws SQLException
 	 * @return Nothing
 	 * */
-	public void updateGroup(String name, String familyName, String newGroupName) throws SQLException{
+	public void updateGroup(int studentID, String newGroupName) throws SQLException{
 
 		Connection conn = DriverManager.getConnection(getProperty("URL"));
 
-		int studentID = -1;
 		int newGroupID = -1;
-
-		String getStudentIDQuery = "SELECT id FROM students "
-									+ "WHERE name='" + name + "' AND family_name='" + familyName + "'";
-		Statement getStudentIDStat = conn.createStatement();
-		ResultSet studentRS = getStudentIDStat.executeQuery(getStudentIDQuery);
-		if(studentRS.next()){
-			studentID = studentRS.getInt(1);
-		}else{
-			studentRS.close();
-			getStudentIDStat.close();
-			conn.close();
-
-			throw (new SQLException());
-		}
-		studentRS.close();
-		getStudentIDStat.close();
-
+		
 		String getGroupIDQuery = "SELECT id FROM groups "
 									+ "WHERE name='" + newGroupName + "'";
 		Statement getGroupIDStat = conn.createStatement();
 		ResultSet groupRS = getGroupIDStat.executeQuery(getGroupIDQuery);
 		if(groupRS.next()){
-		newGroupID = groupRS.getInt(1);
+			newGroupID = groupRS.getInt(1);
 		}else{
 			groupRS.close();
 			getGroupIDStat.close();
@@ -191,9 +170,9 @@ public class DAOStudentsConnection implements DAOStudents{
 	}
 
 	/**
-	 * This method delete data from students table.
+	 * This method delete student with specific name and family name from students table.
 	 *
-	 * @see DAOStudents#delete(String, String)
+	 * @see DAOStudent#delete(String, String)
 	 *
 	 * @param name Name of student
 	 * @param familyName Family name of student
@@ -218,7 +197,7 @@ public class DAOStudentsConnection implements DAOStudents{
 	/**
 	 * This method return list of all students.
 	 *
-	 * @see DAOStudents#getAll()
+	 * @see DAOStudent#getAll()
 	 *
 	 * @throws SQLException
 	 * @return List of persons
@@ -257,7 +236,7 @@ public class DAOStudentsConnection implements DAOStudents{
 	/**
 	 * This method return list of all students who have a specific name.
 	 *
-	 * @see DAOStudents#getByName(String)
+	 * @see DAOStudent#getByName(String)
 	 *
 	 * @param name Name of student for whom there is a search
 	 * @throws SQLException
@@ -299,7 +278,7 @@ public class DAOStudentsConnection implements DAOStudents{
 	/**
 	 * This method return list of all students who have a specific family name.
 	 *
-	 * @see DAOStudents#getByFamilyName(String)
+	 * @see DAOStudent#getByFamilyName(String)
 	 *
 	 * @param familyName Family name of student for whom there is a search
 	 * @throws SQLException
@@ -341,7 +320,7 @@ public class DAOStudentsConnection implements DAOStudents{
 	/**
 	 * Method return list of students who have specific name and specific family name
 	 *
-	 * @see DAOStudents#getStudent(String, String)
+	 * @see DAOStudent#getStudent(String, String)
 	 *
 	 * @param name Name of student
 	 * @param familyName Family name of student

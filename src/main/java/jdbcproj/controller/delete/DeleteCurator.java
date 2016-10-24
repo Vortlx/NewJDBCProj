@@ -7,8 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdbcproj.dao.DAOTeachers;
-import jdbcproj.dao.daoteachers.DAOTeachersConnection;
+import jdbcproj.dao.DAOTeacher;
+import jdbcproj.dao.daoteacher.DAOTeacherHibernate;
+import jdbcproj.hibernateutil.HibernateUtil;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -27,14 +28,13 @@ public class DeleteCurator extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
-        DAOTeachers dao = new DAOTeachersConnection();
+        DAOTeacher dao = new DAOTeacherHibernate(HibernateUtil.getSessionFactory());
 
         try{
-            String teacherName = req.getParameter("teacherName");
-            String teacherFamilyName = req.getParameter("teacherFamilyName");
+            int teacherID = Integer.parseInt(req.getParameter("teacherID"));
             String groupName= req.getParameter("groupName");
 
-            dao.deleteCurator(teacherName, teacherFamilyName, groupName);
+            dao.deleteCurator(teacherID, groupName);
         }catch(SQLException e){
             e.printStackTrace();
         }

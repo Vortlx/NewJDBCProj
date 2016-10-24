@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jdbcproj.dao.DAOGroup;
-import jdbcproj.dao.daogroup.DAOGroupConnection;
+import jdbcproj.dao.daogroup.DAOGroupHibernate;
+import jdbcproj.hibernateutil.HibernateUtil;
 
 /**
  * Servlet add group with specific name into database
@@ -26,7 +27,7 @@ public class AddGroup extends HttpServlet{
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
 		
-		DAOGroup daoStudent = new DAOGroupConnection();
+		DAOGroup daoStudent = new DAOGroupHibernate(HibernateUtil.getSessionFactory());
 		
 		String name = req.getParameter("name");
 		

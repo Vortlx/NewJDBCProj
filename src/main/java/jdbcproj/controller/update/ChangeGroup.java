@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdbcproj.dao.DAOStudents;
-import jdbcproj.dao.daostudents.DAOStudentsConnection;
+import jdbcproj.dao.DAOStudent;
+import jdbcproj.dao.daostudent.DAOStudentHibernate;
+import jdbcproj.hibernateutil.HibernateUtil;
 
 /**
  * Servlet change name of the student group in database
@@ -26,14 +27,13 @@ public class ChangeGroup extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
     	
-    	DAOStudents dao = new DAOStudentsConnection();
+    	DAOStudent dao = new DAOStudentHibernate(HibernateUtil.getSessionFactory());
     	
     	try{
-    		String studentName = req.getParameter("studentName");
-    		String studentFamilyName = req.getParameter("studentFamilyName");
+    		int studentID = Integer.parseInt(req.getParameter("studentID"));
     		String newGroupName = req.getParameter("newGroupName");
     		
-    		dao.updateGroup(studentName, studentFamilyName, newGroupName);
+    		dao.updateGroup(studentID, newGroupName);
     	}catch(SQLException e){
     		e.printStackTrace();
             String message = "Can't do this operation.";

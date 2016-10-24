@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdbcproj.dao.DAOTeachers;
-import jdbcproj.dao.daoteachers.DAOTeachersConnection;
+import jdbcproj.dao.DAOTeacher;
+import jdbcproj.dao.daoteacher.DAOTeacherHibernate;
+import jdbcproj.hibernateutil.HibernateUtil;
 
 /**
  * Servlet add teacher with specific name and family name into database
@@ -26,7 +27,7 @@ public class AddTeacher extends HttpServlet{
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
 		
-		DAOTeachers daoStudent = new DAOTeachersConnection();
+		DAOTeacher daoStudent = new DAOTeacherHibernate(HibernateUtil.getSessionFactory());
 		
 		String name = req.getParameter("name");
 		String familyName = req.getParameter("familyName");

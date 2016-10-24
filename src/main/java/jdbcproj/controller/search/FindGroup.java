@@ -2,8 +2,9 @@ package jdbcproj.controller.search;
 
 
 import jdbcproj.dao.DAOGroup;
-import jdbcproj.dao.daogroup.DAOGroupConnection;
+import jdbcproj.dao.daogroup.DAOGroupHibernate;
 import jdbcproj.data.Group;
+import jdbcproj.hibernateutil.HibernateUtil;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -18,7 +19,7 @@ import java.util.List;
 
 
 /**
- * Servlet search groups with specific properties
+ * Servlet search groups with specific name
  *
  * @author Lebedev Alexander
  * @since 2016-09-19
@@ -30,7 +31,7 @@ public class FindGroup extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
-        DAOGroup connToGroup = new DAOGroupConnection();
+        DAOGroup connToGroup = new DAOGroupHibernate(HibernateUtil.getSessionFactory());
 
         String name = req.getParameter("name");
 
