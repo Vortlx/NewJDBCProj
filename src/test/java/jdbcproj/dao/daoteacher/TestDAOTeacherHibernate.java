@@ -16,7 +16,6 @@ import jdbcproj.data.Teacher;
 import jdbcproj.hibernateutil.HibernateUtil;
 
 
-@Ignore
 public class TestDAOTeacherHibernate {
 
     private static final DAOTeacher daoTeacher = new DAOTeacherHibernate(HibernateUtil.getSessionFactory());;

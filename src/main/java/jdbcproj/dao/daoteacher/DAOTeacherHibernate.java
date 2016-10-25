@@ -46,6 +46,8 @@ public class DAOTeacherHibernate implements DAOTeacher{
         Teacher teacher = session.get(Teacher.class, teacherID);
         
         teacher.addGroup(group);
+        group.addTeacher(teacher);
+
         session.saveOrUpdate(teacher);
         
         session.getTransaction().commit();
@@ -91,7 +93,8 @@ public class DAOTeacherHibernate implements DAOTeacher{
         Group group = (Group) query.getSingleResult();
 
         Teacher teacher = session.get(Teacher.class, teacherID);
-        teacher.addGroup(group);
+        teacher.deleteGroup(group);
+        group.deleteTeacher(teacher);
 
         session.update(teacher);
 
@@ -165,10 +168,10 @@ public class DAOTeacherHibernate implements DAOTeacher{
         
         session.beginTransaction();
         
-        String queryString = "from Teacher where groups.name = :groupName";
+        String queryString = "select Group.teachers from Group where name = :name";
         Query query = session.createQuery(queryString);
         query.setParameter("groupName", groupName);
-        List<Teacher> teachers = query.getResultList();
+        List<Teacher> teachers = (List<Teacher>) query.getResultList().get(0);
         
         session.getTransaction().commit();
         

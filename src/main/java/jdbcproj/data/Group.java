@@ -37,7 +37,7 @@ public class Group {
     @OneToMany(fetch=FetchType.EAGER, mappedBy="group")
 	private Set<Student> students;
     
-    @ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+    @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(name="curator", 
             joinColumns={@JoinColumn(name="id_group")}, 
             inverseJoinColumns={@JoinColumn(name="id_teacher")})
@@ -64,6 +64,14 @@ public class Group {
 
 	public void addStudent(Student student){
 		students.add(student);
+	}
+	
+	public void addTeacher(Teacher teacher){
+	    teachers.add(teacher);
+	}
+	
+	public void deleteTeacher(Teacher teacher){
+	    teachers.remove(teacher);
 	}
 	
 	public String getName() {
@@ -94,7 +102,6 @@ public class Group {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + id;
         result = prime * result + ((name == null) ? 0 : name.hashCode());
         //result = prime * result + ((students == null) ? 0 : students.hashCode());
         //result = prime * result + ((teachers == null) ? 0 : teachers.hashCode());
@@ -114,16 +121,6 @@ public class Group {
             if (other.name != null)
                 return false;
         } else if (!name.equals(other.name))
-            return false;
-        if (students == null) {
-            if (other.students != null)
-                return false;
-        } else if (!students.equals(other.students))
-            return false;
-        if (teachers == null) {
-            if (other.teachers != null)
-                return false;
-        } else if (!teachers.equals(other.teachers))
             return false;
         return true;
     }

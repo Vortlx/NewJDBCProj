@@ -16,7 +16,6 @@ import jdbcproj.data.Group;
 import jdbcproj.data.Student;
 import jdbcproj.hibernateutil.HibernateUtil;
 
-@Ignore
 public class TestDAOStudentHibernate {
 
     private static final DAOGroup daoGroup = new DAOGroupHibernate(HibernateUtil.getSessionFactory());
@@ -72,7 +71,7 @@ public class TestDAOStudentHibernate {
             student.setGroup(group);
             
             List<Student> students = daoStudent.getByName(studentName);
-            
+
             Assert.assertTrue(students.contains(student));
         }catch(SQLException e){
             e.printStackTrace();

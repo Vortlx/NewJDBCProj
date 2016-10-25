@@ -18,7 +18,6 @@ import jdbcproj.data.Student;
 import jdbcproj.data.Teacher;
 import jdbcproj.hibernateutil.HibernateUtil;
 
-@Ignore
 public class TestDAOGroupHibernate {
     
     private static final DAOGroup daoGroup = new DAOGroupHibernate(HibernateUtil.getSessionFactory());

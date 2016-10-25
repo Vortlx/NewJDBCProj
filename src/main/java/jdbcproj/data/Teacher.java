@@ -17,7 +17,7 @@ import javax.persistence.*;
 @Table(name="teachers")
 public class Teacher extends Person {
 
-    @ManyToMany(fetch=FetchType.EAGER, cascade= CascadeType.ALL, mappedBy="teachers")
+    @ManyToMany(fetch=FetchType.EAGER, mappedBy="teachers")
     private Set<Group> groups;
 
     public Teacher(){
