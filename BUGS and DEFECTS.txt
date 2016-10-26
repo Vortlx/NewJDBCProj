@@ -6,6 +6,6 @@
 
 4. In DAO sources not perform DRY. For example in DAOTeacher.deleteCurator method.
 
-5. Don't work method Teacher.getByGroup
+5. Don't work messages if write wrong data in forms
 
 6. Hibernate n + 1 problem
