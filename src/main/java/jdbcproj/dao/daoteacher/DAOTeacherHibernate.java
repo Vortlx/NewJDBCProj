@@ -168,10 +168,10 @@ public class DAOTeacherHibernate implements DAOTeacher{
         
         session.beginTransaction();
         
-        String queryString = "select Group.teachers from Group where name = :name";
+        String queryString = "select teachers from Group group where group.name = :groupName";
         Query query = session.createQuery(queryString);
         query.setParameter("groupName", groupName);
-        List<Teacher> teachers = (List<Teacher>) query.getResultList().get(0);
+        List<Teacher> teachers = (List<Teacher>) query.getResultList();
         
         session.getTransaction().commit();
         

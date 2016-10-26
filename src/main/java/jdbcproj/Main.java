@@ -32,60 +32,12 @@ public class Main{
 		DAOStudent daoStudent = new DAOStudentHibernate(HibernateUtil.getSessionFactory());
 
 	    try{
+	        List<Teacher> teachers = daoTeacher.getByGroup("111");
 	        
-	    	Teacher teacher = daoTeacher.getTeacher("Cecilia", "Fleming").get(0);
-			Group group = daoGroup.getByName("111");
-
-			daoTeacher.addGroup(teacher.getId(), group.getName());
-
-	         System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println("WOW!!!!");
-            System.out.println();
-            System.out.println(teacher.getGroups().size());
-            for(Group i: teacher.getGroups()){
-                System.out.println(i.getName());
-            }
-			
-			
-			teacher = daoTeacher.getTeacher("Cecilia", "Fleming").get(0);
-			Set<Group> groups = teacher.getGroups();
-
-
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println("WOW!!!!");
-			System.out.println();
-			System.out.println(groups.size());
-			for(Group i: groups){
-				System.out.println(i.getName());
-			}
-            
-	        /*
-	        Student student = daoStudent.getStudent("Gene", "Fox").get(0);
-	        Group group131 = daoGroup.getByName("131");
-	        Group group111 = daoGroup.getByName("111");
-	        
-	        daoStudent.updateGroup(student.getId(), group131.getName());
-	        HibernateUtil.closeSessionFactory();
-	        
-	        System.out.println("SACCESS");
-	        System.out.println();
-	        
-	        System.out.println(student.getName() + " " + student.getFamilyName() + " " + student.getGroup().getName());
-	        
-	        System.out.println("Students in 111: \n");
-	        for(Student student1: group111.getStudents()){
-	            System.out.println(student1.getName() + " " + student1.getFamilyName() + " " + student1.getGroup().getName());
+	        for(Teacher teacher: teachers){
+	            System.out.println(teacher.getName() + " " + teacher.getFamilyName());
 	        }
 	        
-	        System.out.println("Students in 131: \n");
-            for(Student student1: group131.getStudents()){
-                System.out.println(student1.getName() + " " + student1.getFamilyName() + " " + student1.getGroup().getName());
-            }
-            */
 	    }catch(SQLException e){
 	        e.printStackTrace();
 	    }finally{
