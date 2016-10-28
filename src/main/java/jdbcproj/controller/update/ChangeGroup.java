@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import jdbcproj.databaseservice.dao.DAOStudent;
 import jdbcproj.databaseservice.dao.daostudent.DAOStudentHibernate;
 import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 /**
  * Servlet change name of the student group in database
@@ -20,20 +24,22 @@ import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
+@Component
 public class ChangeGroup extends HttpServlet{
    
 	private static final long serialVersionUID = 2620571141L;
 
+    @Autowired
+    DAOStudent daoStudent;
+
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-    	
-    	DAOStudent dao = new DAOStudentHibernate(HibernateUtil.getSessionFactory());
-    	
+
     	try{
     		int studentID = Integer.parseInt(req.getParameter("studentID"));
     		String newGroupName = req.getParameter("newGroupName");
-    		
-    		dao.updateGroup(studentID, newGroupName);
+
+            daoStudent.updateGroup(studentID, newGroupName);
     	}catch(SQLException e){
     		e.printStackTrace();
             String message = "Can't do this operation.";

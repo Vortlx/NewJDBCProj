@@ -17,6 +17,10 @@ import jdbcproj.databaseservice.dao.DAOStudent;
 import jdbcproj.databaseservice.dao.daostudent.DAOStudentHibernate;
 import jdbcproj.data.Student;
 import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 /**
  * Servlet search students with specific properties
@@ -24,28 +28,30 @@ import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
+@Component
 public class FindStudent extends HttpServlet{
 
 	private static final long serialVersionUID = 2387567823658L;
-	
+
+	@Autowired
+	DAOStudent daoStudent;
+
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
 
-		DAOStudent connToStudent = new DAOStudentHibernate(HibernateUtil.getSessionFactory());
-		
 		String name = req.getParameter("name");
 		String familyName = req.getParameter("familyName");
 		
 		List<Student> list = new ArrayList<Student>();
 		try{
 			if("".equals(name) && "".equals(familyName)){
-				list = connToStudent.getAll();
+				list = daoStudent.getAll();
 			}else if(!"".equals(name) && "".equals(familyName)){
-				list = connToStudent.getByName(name);
+				list = daoStudent.getByName(name);
 			} else if("".equals(name) && !"".equals(familyName)){
-				list = connToStudent.getByFamilyName(familyName);
+				list = daoStudent.getByFamilyName(familyName);
 			}else{
-				list = connToStudent.getStudent(name, familyName);
+				list = daoStudent.getStudent(name, familyName);
 			}
 		
 			req.setAttribute("students", list);

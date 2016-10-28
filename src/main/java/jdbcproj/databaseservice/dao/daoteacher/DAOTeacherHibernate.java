@@ -1,5 +1,6 @@
 package jdbcproj.databaseservice.dao.daoteacher;
 
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -11,9 +12,14 @@ import org.hibernate.SessionFactory;
 import jdbcproj.databaseservice.dao.DAOTeacher;
 import jdbcproj.data.Group;
 import jdbcproj.data.Teacher;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class DAOTeacherHibernate implements DAOTeacher{
-    
+
+    @Autowired
     SessionFactory sessionFactory;
     
     public DAOTeacherHibernate(SessionFactory sessionFactory){

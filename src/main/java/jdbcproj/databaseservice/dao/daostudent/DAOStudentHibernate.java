@@ -1,5 +1,6 @@
 package jdbcproj.databaseservice.dao.daostudent;
 
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -11,9 +12,14 @@ import org.hibernate.SessionFactory;
 import jdbcproj.databaseservice.dao.DAOStudent;
 import jdbcproj.data.Group;
 import jdbcproj.data.Student;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class DAOStudentHibernate implements DAOStudent{
 
+    @Autowired
     SessionFactory sessionFactory;
     
     public DAOStudentHibernate(SessionFactory sessionFactory){

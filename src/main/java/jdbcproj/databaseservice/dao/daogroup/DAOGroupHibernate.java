@@ -11,16 +11,20 @@ import org.hibernate.SessionFactory;
 
 import jdbcproj.databaseservice.dao.DAOGroup;
 import jdbcproj.data.Group;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 
+@Component
 public class DAOGroupHibernate implements DAOGroup {
 
+    @Autowired
     SessionFactory sessionFactory;
-    
+
     public DAOGroupHibernate(SessionFactory sessionFactory){
         this.sessionFactory = sessionFactory;
     }
-    
+
     public void add(String name) throws SQLException {
         
         Session session = sessionFactory.getCurrentSession();

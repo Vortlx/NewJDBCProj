@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import jdbcproj.databaseservice.dao.DAOGroup;
 import jdbcproj.databaseservice.dao.daogroup.DAOGroupHibernate;
 import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 /**
  * Servlet add group with specific name into database
@@ -20,21 +24,23 @@ import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
+@Component
 public class AddGroup extends HttpServlet{
 
 	private static final long serialVersionUID = 253233311141L;
-	
+
+	@Autowired
+	DAOGroup daoGroup;
+
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
-		
-		DAOGroup daoStudent = new DAOGroupHibernate(HibernateUtil.getSessionFactory());
-		
+
 		String name = req.getParameter("name");
 		
 		String message = "";
 		
 		try{
-			daoStudent.add(name);
+			daoGroup.add(name);
 			message = "Operation was success";
 		}catch(SQLException e){
 			message = "Can't do this operation.";

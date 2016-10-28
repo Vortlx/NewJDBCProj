@@ -15,6 +15,10 @@ import jdbcproj.databaseservice.dao.DAOGroup;
 import jdbcproj.databaseservice.dao.daogroup.DAOGroupHibernate;
 import jdbcproj.data.Group;
 import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 /**
  * Servlet search specific group of teacher
@@ -22,18 +26,20 @@ import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
+@Component
 public class FindGroupByTeacher extends HttpServlet{
 
     private static final long serialVersionUID = 73111096375035L;
 
+    @Autowired
+    DAOGroup daoGroup;
+
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-    	
-    	DAOGroup dao = new DAOGroupHibernate(HibernateUtil.getSessionFactory());
-   	
+
     	try{
     		String groupName = req.getParameter("groupName");
-    		Group group = dao.getByName(groupName);
+    		Group group = daoGroup.getByName(groupName);
     		
     		req.setAttribute("group", group);
     	}catch(SQLException e){

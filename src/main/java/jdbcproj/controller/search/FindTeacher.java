@@ -5,6 +5,10 @@ import jdbcproj.databaseservice.dao.DAOTeacher;
 import jdbcproj.databaseservice.dao.daoteacher.DAOTeacherHibernate;
 import jdbcproj.data.Teacher;
 import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -23,13 +27,16 @@ import java.util.List;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
+@Component
 public class FindTeacher extends HttpServlet {
+
     private static final long serialVersionUID = 9878761265153L;
+
+    @Autowired
+    DAOTeacher daoTeacher;
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-
-        DAOTeacher connToTeacher = new DAOTeacherHibernate(HibernateUtil.getSessionFactory());
 
         String name = req.getParameter("name");
         String familyName = req.getParameter("familyName");
@@ -37,13 +44,13 @@ public class FindTeacher extends HttpServlet {
         List<Teacher> list = new ArrayList<Teacher>();
         try{
             if("".equals(name) && "".equals(familyName)){
-                list = connToTeacher.getAll();
+                list = daoTeacher.getAll();
             }else if(!"".equals(name) && "".equals(familyName)){
-                list = connToTeacher.getByName(name);
+                list = daoTeacher.getByName(name);
             } else if("".equals(name) && !"".equals(familyName)){
-                list = connToTeacher.getByFamilyName(familyName);
+                list = daoTeacher.getByFamilyName(familyName);
             }else{
-                list = connToTeacher.getTeacher(name, familyName);
+                list = daoTeacher.getTeacher(name, familyName);
             }
 
             req.setAttribute("teachers", list);

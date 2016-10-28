@@ -12,6 +12,8 @@ import jdbcproj.databaseservice.dao.daogroup.DAOGroupHibernate;
 import jdbcproj.databaseservice.dao.daostudent.DAOStudentHibernate;
 import jdbcproj.data.Teacher;
 import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * This Class using for testing other classes.
@@ -22,9 +24,11 @@ import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
 public class Main{
 	public static void main(String[] args){
 
-	    DAOTeacher daoTeacher = new DAOTeacherHibernate(HibernateUtil.getSessionFactory());
-		DAOGroup daoGroup = new DAOGroupHibernate(HibernateUtil.getSessionFactory());
-		DAOStudent daoStudent = new DAOStudentHibernate(HibernateUtil.getSessionFactory());
+		ApplicationContext context = new ClassPathXmlApplicationContext("Spring.cfg.xml");
+
+	    DAOTeacher daoTeacher = (DAOTeacher)context.getBean("daoTeacherHibernate");
+		DAOGroup daoGroup = (DAOGroup)context.getBean("daoGroupHibernate");
+		DAOStudent daoStudent = (DAOStudent)context.getBean("daoStudentHibernate");
 
 	    try{
 	        List<Teacher> teachers = daoTeacher.getByGroup("111");

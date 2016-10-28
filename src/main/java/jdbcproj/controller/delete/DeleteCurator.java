@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import jdbcproj.databaseservice.dao.DAOTeacher;
 import jdbcproj.databaseservice.dao.daoteacher.DAOTeacherHibernate;
 import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -21,20 +25,22 @@ import java.sql.SQLException;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
+@Component
 public class DeleteCurator extends HttpServlet {
 
     private static final long serialVersionUID = 25370000004441L;
 
+    @Autowired
+    DAOTeacher daoTeacher;
+
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-
-        DAOTeacher dao = new DAOTeacherHibernate(HibernateUtil.getSessionFactory());
 
         try{
             int teacherID = Integer.parseInt(req.getParameter("teacherID"));
             String groupName= req.getParameter("groupName");
 
-            dao.deleteCurator(teacherID, groupName);
+            daoTeacher.deleteCurator(teacherID, groupName);
         }catch(SQLException e){
             e.printStackTrace();
         }

@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import jdbcproj.databaseservice.dao.DAOTeacher;
 import jdbcproj.databaseservice.dao.daoteacher.DAOTeacherHibernate;
 import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 /**
  * Servlet add teacher with specific name and family name into database
@@ -20,22 +24,24 @@ import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
+@Component
 public class AddTeacher extends HttpServlet{
 
 	private static final long serialVersionUID = 253444423311141L;
-	
+
+	@Autowired
+	DAOTeacher daoTeacher;
+
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
-		
-		DAOTeacher daoStudent = new DAOTeacherHibernate(HibernateUtil.getSessionFactory());
-		
+
 		String name = req.getParameter("name");
 		String familyName = req.getParameter("familyName");
 		
 		String message = "";
 		
 		try{
-			daoStudent.add(name, familyName);
+			daoTeacher.add(name, familyName);
 			message = "Operation was success";
 		}catch(SQLException e){
 			message = "Can't do this operation.";

@@ -5,6 +5,10 @@ import jdbcproj.databaseservice.dao.DAOGroup;
 import jdbcproj.databaseservice.dao.daogroup.DAOGroupHibernate;
 import jdbcproj.data.Group;
 import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -24,23 +28,25 @@ import java.util.List;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
+@Component
 public class FindGroup extends HttpServlet {
 
     private static final long serialVersionUID = 7346289375035L;
 
+    @Autowired
+    DAOGroup daoGroup;
+
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-
-        DAOGroup connToGroup = new DAOGroupHibernate(HibernateUtil.getSessionFactory());
 
         String name = req.getParameter("name");
 
         List<Group> list = new ArrayList<Group>();
         try{
             if("".equals(name)){
-                list = connToGroup.getAll();
+                list = daoGroup.getAll();
             }else if(!"".equals(name)) {
-                Group oneGroup = connToGroup.getByName(name);
+                Group oneGroup = daoGroup.getByName(name);
                 list.add(oneGroup);
             }
             req.setAttribute("groups", list);

@@ -16,6 +16,10 @@ import jdbcproj.databaseservice.dao.DAOTeacher;
 import jdbcproj.databaseservice.dao.daoteacher.DAOTeacherHibernate;
 import jdbcproj.data.Teacher;
 import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 /**
  * Servlet search teachers who curatoring specific group
@@ -23,18 +27,20 @@ import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
+@Component
 public class FindTeachersByGroup extends HttpServlet{
 
     private static final long serialVersionUID = 731035L;
 
+    @Autowired
+    DAOTeacher daoTeacher;
+
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-    	
-    	DAOTeacher dao = new DAOTeacherHibernate(HibernateUtil.getSessionFactory());
 
     	try{
     		String groupName = req.getParameter("groupName");
-    		List<Teacher> teachers = dao.getByGroup(groupName);
+    		List<Teacher> teachers = daoTeacher.getByGroup(groupName);
     		
     		req.setAttribute("groupName", groupName);
     		req.setAttribute("teachers", teachers);

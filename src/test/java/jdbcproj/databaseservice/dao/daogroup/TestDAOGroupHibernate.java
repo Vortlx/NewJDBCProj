@@ -16,10 +16,13 @@ import jdbcproj.data.Group;
 import jdbcproj.data.Student;
 import jdbcproj.data.Teacher;
 import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestDAOGroupHibernate {
-    
-    private static final DAOGroup daoGroup = new DAOGroupHibernate(HibernateUtil.getSessionFactory());
+
+    private static final ApplicationContext context = new ClassPathXmlApplicationContext("Spring.cfg.xml");
+    private static final DAOGroup daoGroup = (DAOGroup) context.getBean("daoGroupHibernate");
     private static final String testGroupName = "TestGroup";
     
     @BeforeClass
