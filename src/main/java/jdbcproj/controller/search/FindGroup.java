@@ -1,10 +1,10 @@
 package jdbcproj.controller.search;
 
 
-import jdbcproj.dao.DAOGroup;
-import jdbcproj.dao.daogroup.DAOGroupHibernate;
+import jdbcproj.databaseservice.dao.DAOGroup;
+import jdbcproj.databaseservice.dao.daogroup.DAOGroupHibernate;
 import jdbcproj.data.Group;
-import jdbcproj.hibernateutil.HibernateUtil;
+import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;

@@ -1,4 +1,4 @@
-package jdbcproj.dao.daoteacher;
+package jdbcproj.databaseservice.dao.daoteacher;
 
 import java.sql.SQLException;
 import java.util.HashSet;
@@ -10,10 +10,10 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import jdbcproj.dao.DAOTeacher;
+import jdbcproj.databaseservice.dao.DAOTeacher;
 import jdbcproj.data.Group;
 import jdbcproj.data.Teacher;
-import jdbcproj.hibernateutil.HibernateUtil;
+import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
 
 
 public class TestDAOTeacherHibernate {

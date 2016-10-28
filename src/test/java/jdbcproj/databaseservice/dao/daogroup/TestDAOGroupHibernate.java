@@ -1,4 +1,4 @@
-package jdbcproj.dao.daogroup;
+package jdbcproj.databaseservice.dao.daogroup;
 
 
 import org.junit.Test;
@@ -11,12 +11,11 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 
-import jdbcproj.dao.DAOGroup;
-import jdbcproj.dao.daogroup.DAOGroupHibernate;
+import jdbcproj.databaseservice.dao.DAOGroup;
 import jdbcproj.data.Group;
 import jdbcproj.data.Student;
 import jdbcproj.data.Teacher;
-import jdbcproj.hibernateutil.HibernateUtil;
+import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
 
 public class TestDAOGroupHibernate {
     

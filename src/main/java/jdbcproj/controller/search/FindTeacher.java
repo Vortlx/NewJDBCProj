@@ -1,10 +1,10 @@
 package jdbcproj.controller.search;
 
 
-import jdbcproj.dao.DAOTeacher;
-import jdbcproj.dao.daoteacher.DAOTeacherHibernate;
+import jdbcproj.databaseservice.dao.DAOTeacher;
+import jdbcproj.databaseservice.dao.daoteacher.DAOTeacherHibernate;
 import jdbcproj.data.Teacher;
-import jdbcproj.hibernateutil.HibernateUtil;
+import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;

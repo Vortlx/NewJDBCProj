@@ -1,4 +1,4 @@
-package jdbcproj.hibernateutil;
+package jdbcproj.databaseservice.hibernateutil;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdbcproj.dao.DAOTeacher;
-import jdbcproj.dao.daoteacher.DAOTeacherHibernate;
+import jdbcproj.databaseservice.dao.DAOTeacher;
+import jdbcproj.databaseservice.dao.daoteacher.DAOTeacherHibernate;
 import jdbcproj.data.Teacher;
-import jdbcproj.hibernateutil.HibernateUtil;
+import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
 
 /**
  * Servlet search teachers who curatoring specific group

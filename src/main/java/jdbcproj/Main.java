@@ -2,21 +2,16 @@ package jdbcproj;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Set;
 
-import jdbcproj.dao.DAOTeacher;
-import jdbcproj.dao.daoteacher.DAOTeacherHibernate;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import jdbcproj.databaseservice.dao.DAOTeacher;
+import jdbcproj.databaseservice.dao.daoteacher.DAOTeacherHibernate;
 
-import jdbcproj.dao.DAOGroup;
-import jdbcproj.dao.DAOStudent;
-import jdbcproj.dao.daogroup.DAOGroupHibernate;
-import jdbcproj.dao.daostudent.DAOStudentHibernate;
-import jdbcproj.data.Group;
-import jdbcproj.data.Student;
+import jdbcproj.databaseservice.dao.DAOGroup;
+import jdbcproj.databaseservice.dao.DAOStudent;
+import jdbcproj.databaseservice.dao.daogroup.DAOGroupHibernate;
+import jdbcproj.databaseservice.dao.daostudent.DAOStudentHibernate;
 import jdbcproj.data.Teacher;
-import jdbcproj.hibernateutil.HibernateUtil;
+import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
 
 /**
  * This Class using for testing other classes.

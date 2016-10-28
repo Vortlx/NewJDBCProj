@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdbcproj.dao.DAOGroup;
-import jdbcproj.dao.daogroup.DAOGroupHibernate;
+import jdbcproj.databaseservice.dao.DAOGroup;
+import jdbcproj.databaseservice.dao.daogroup.DAOGroupHibernate;
 import jdbcproj.data.Group;
-import jdbcproj.hibernateutil.HibernateUtil;
+import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
 
 /**
  * Servlet search specific group of teacher

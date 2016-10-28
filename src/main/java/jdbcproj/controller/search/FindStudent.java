@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdbcproj.dao.DAOStudent;
-import jdbcproj.dao.daostudent.DAOStudentHibernate;
+import jdbcproj.databaseservice.dao.DAOStudent;
+import jdbcproj.databaseservice.dao.daostudent.DAOStudentHibernate;
 import jdbcproj.data.Student;
-import jdbcproj.hibernateutil.HibernateUtil;
+import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
 
 /**
  * Servlet search students with specific properties

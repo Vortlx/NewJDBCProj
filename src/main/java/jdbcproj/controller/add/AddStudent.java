@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdbcproj.dao.DAOStudent;
-import jdbcproj.dao.daostudent.DAOStudentHibernate;
-import jdbcproj.hibernateutil.HibernateUtil;
+import jdbcproj.databaseservice.dao.DAOStudent;
+import jdbcproj.databaseservice.dao.daostudent.DAOStudentHibernate;
+import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
 
 /**
  * Servlet add student with specific name and family name into database

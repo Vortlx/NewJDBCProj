@@ -1,4 +1,4 @@
-package jdbcproj.dao.daostudent;
+package jdbcproj.databaseservice.dao.daostudent;
 
 
 import java.sql.Connection;
@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-import jdbcproj.dao.DAOStudent;
+import jdbcproj.databaseservice.dao.DAOStudent;
 import jdbcproj.data.Group;
 import jdbcproj.data.Student;
 

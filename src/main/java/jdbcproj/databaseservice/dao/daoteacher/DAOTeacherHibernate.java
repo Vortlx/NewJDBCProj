@@ -1,4 +1,4 @@
-package jdbcproj.dao.daoteacher;
+package jdbcproj.databaseservice.dao.daoteacher;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -8,7 +8,7 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import jdbcproj.dao.DAOTeacher;
+import jdbcproj.databaseservice.dao.DAOTeacher;
 import jdbcproj.data.Group;
 import jdbcproj.data.Teacher;
 

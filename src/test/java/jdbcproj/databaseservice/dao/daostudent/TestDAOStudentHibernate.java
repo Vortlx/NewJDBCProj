@@ -1,4 +1,4 @@
-package jdbcproj.dao.daostudent;
+package jdbcproj.databaseservice.dao.daostudent;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -9,12 +9,12 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import jdbcproj.dao.DAOGroup;
-import jdbcproj.dao.DAOStudent;
-import jdbcproj.dao.daogroup.DAOGroupHibernate;
+import jdbcproj.databaseservice.dao.DAOGroup;
+import jdbcproj.databaseservice.dao.DAOStudent;
+import jdbcproj.databaseservice.dao.daogroup.DAOGroupHibernate;
 import jdbcproj.data.Group;
 import jdbcproj.data.Student;
-import jdbcproj.hibernateutil.HibernateUtil;
+import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
 
 public class TestDAOStudentHibernate {
 

@@ -1,4 +1,4 @@
-package jdbcproj.dao.daogroup;
+package jdbcproj.databaseservice.dao.daogroup;
 
 
 import java.sql.SQLException;
@@ -9,7 +9,7 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import jdbcproj.dao.DAOGroup;
+import jdbcproj.databaseservice.dao.DAOGroup;
 import jdbcproj.data.Group;
 
 
