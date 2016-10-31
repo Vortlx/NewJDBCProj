@@ -30,7 +30,7 @@ public class AddCurator extends HttpServlet {
     private static final long serialVersionUID = 25777523771141L;
 
     @Autowired
-    private  DAOTeacher daoTeacher;
+    private DAOTeacher daoTeacher;
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
