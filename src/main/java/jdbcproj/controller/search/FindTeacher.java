@@ -27,12 +27,11 @@ import java.util.List;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
-@Component
+@Deprecated
 public class FindTeacher extends HttpServlet {
 
     private static final long serialVersionUID = 9878761265153L;
 
-    @Autowired
     private DAOTeacher daoTeacher;
 
     @Override

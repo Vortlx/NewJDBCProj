@@ -24,12 +24,11 @@ import org.springframework.stereotype.Component;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
-@Component
+@Deprecated
 public class AddGroup extends HttpServlet{
 
 	private static final long serialVersionUID = 253233311141L;
 
-	@Autowired
 	private DAOGroup daoGroup;
 
 	@Override

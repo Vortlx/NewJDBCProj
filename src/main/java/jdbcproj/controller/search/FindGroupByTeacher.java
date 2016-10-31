@@ -26,12 +26,11 @@ import org.springframework.stereotype.Component;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
-@Component
+@Deprecated
 public class FindGroupByTeacher extends HttpServlet{
 
     private static final long serialVersionUID = 73111096375035L;
 
-    @Autowired
     private DAOGroup daoGroup;
 
     @Override

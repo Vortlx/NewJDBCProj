@@ -24,12 +24,11 @@ import org.springframework.stereotype.Component;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
-@Component
+@Deprecated
 public class AddTeacher extends HttpServlet{
 
 	private static final long serialVersionUID = 253444423311141L;
 
-	@Autowired
 	private DAOTeacher daoTeacher;
 
 	@Override

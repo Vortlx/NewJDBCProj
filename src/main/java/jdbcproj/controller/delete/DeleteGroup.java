@@ -25,12 +25,11 @@ import javax.servlet.ServletException;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
-@Component
+@Deprecated
 public class DeleteGroup extends HttpServlet{
 
 	private static final long serialVersionUID = 25376352337241L;
 
-	@Autowired
 	private DAOGroup daoGroup;
 
 	@Override

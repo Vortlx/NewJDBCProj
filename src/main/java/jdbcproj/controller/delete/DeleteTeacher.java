@@ -25,12 +25,11 @@ import javax.servlet.ServletException;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
-@Component
+@Deprecated
 public class DeleteTeacher extends HttpServlet{
 
 	private static final long serialVersionUID = 254363482137241L;
 
-	@Autowired
 	private DAOTeacher daoTeacher;
 
 	@Override

@@ -25,11 +25,10 @@ import java.sql.SQLException;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
-@Component
+@Deprecated
 public class AddCurator extends HttpServlet {
     private static final long serialVersionUID = 25777523771141L;
 
-    @Autowired
     private DAOTeacher daoTeacher;
 
     @Override
