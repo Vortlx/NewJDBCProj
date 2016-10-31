@@ -16,15 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
-@Component
+@Component("daoStudentHibernate")
 public class DAOStudentHibernate implements DAOStudent{
 
     @Autowired
-    SessionFactory sessionFactory;
-    
-    public DAOStudentHibernate(SessionFactory sessionFactory){
-        this.sessionFactory = sessionFactory;
-    }
+    private SessionFactory sessionFactory;
 
     public void add(String name, String familyName, String groupName) throws SQLException {
         Session session = sessionFactory.getCurrentSession();

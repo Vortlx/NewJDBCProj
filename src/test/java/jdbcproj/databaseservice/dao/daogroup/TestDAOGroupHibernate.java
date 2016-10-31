@@ -21,7 +21,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestDAOGroupHibernate {
 
-    private static final ApplicationContext context = new ClassPathXmlApplicationContext("Spring.cfg.xml");
+    private static final ApplicationContext context = new ClassPathXmlApplicationContext("spring/Spring.cfg.xml");
     private static final DAOGroup daoGroup = (DAOGroup) context.getBean("daoGroupHibernate");
     private static final String testGroupName = "TestGroup";
     

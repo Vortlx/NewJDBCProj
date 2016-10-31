@@ -30,7 +30,7 @@ public class AddStudent extends HttpServlet{
 	private static final long serialVersionUID = 25323623311141L;
 
 	@Autowired
-	DAOStudent daoStudent;
+	private DAOStudent daoStudent;
 	
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{

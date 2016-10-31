@@ -32,7 +32,7 @@ public class FindGroupByTeacher extends HttpServlet{
     private static final long serialVersionUID = 73111096375035L;
 
     @Autowired
-    DAOGroup daoGroup;
+    private DAOGroup daoGroup;
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

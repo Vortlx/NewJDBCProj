@@ -30,7 +30,7 @@ public class AddGroup extends HttpServlet{
 	private static final long serialVersionUID = 253233311141L;
 
 	@Autowired
-	DAOGroup daoGroup;
+	private DAOGroup daoGroup;
 
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{

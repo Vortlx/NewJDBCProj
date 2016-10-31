@@ -30,7 +30,7 @@ public class ChangeGroup extends HttpServlet{
 	private static final long serialVersionUID = 2620571141L;
 
     @Autowired
-    DAOStudent daoStudent;
+    private DAOStudent daoStudent;
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

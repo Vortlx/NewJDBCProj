@@ -15,15 +15,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
-@Component
+@Component("daoGroupHibernate")
 public class DAOGroupHibernate implements DAOGroup {
 
     @Autowired
-    SessionFactory sessionFactory;
-
-    public DAOGroupHibernate(SessionFactory sessionFactory){
-        this.sessionFactory = sessionFactory;
-    }
+    private SessionFactory sessionFactory;
 
     public void add(String name) throws SQLException {
         

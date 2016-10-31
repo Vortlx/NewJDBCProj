@@ -17,10 +17,10 @@ import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-@Ignore
+
 public class TestDAOTeacherHibernate {
 
-    private static final ApplicationContext context = new ClassPathXmlApplicationContext("Spring.cfg.xml");
+    private static final ApplicationContext context = new ClassPathXmlApplicationContext("spring/Spring.cfg.xml");
     private static final DAOTeacher daoTeacher = (DAOTeacher) context.getBean("daoTeacherHibernate");
     private static final String teacherName = "TestName";
     private static final String teacherFamilyName = "TestFamilyName";

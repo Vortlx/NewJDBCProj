@@ -31,7 +31,7 @@ public class DeleteGroup extends HttpServlet{
 	private static final long serialVersionUID = 25376352337241L;
 
 	@Autowired
-	DAOGroup daoGroup;
+	private DAOGroup daoGroup;
 
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{

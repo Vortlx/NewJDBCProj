@@ -18,11 +18,9 @@ import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-
-@Ignore
 public class TestDAOStudentHibernate {
 
-    private static final ApplicationContext context = new ClassPathXmlApplicationContext("Spring.cfg.xml");
+    private static final ApplicationContext context = new ClassPathXmlApplicationContext("spring/Spring.cfg.xml");
     private static final DAOGroup daoGroup = (DAOGroup) context.getBean("daoGroupHibernate");
     private static final DAOStudent daoStudent = (DAOStudent) context.getBean("daoStudentHibernate");
     private static final String studentName = "TestName";

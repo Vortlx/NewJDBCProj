@@ -33,7 +33,7 @@ public class FindTeacher extends HttpServlet {
     private static final long serialVersionUID = 9878761265153L;
 
     @Autowired
-    DAOTeacher daoTeacher;
+    private DAOTeacher daoTeacher;
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

@@ -31,7 +31,7 @@ public class DeleteStudent extends HttpServlet{
 	private static final long serialVersionUID = 253765982137241L;
 
 	@Autowired
-	DAOStudent daoStudent;
+	private DAOStudent daoStudent;
 
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
