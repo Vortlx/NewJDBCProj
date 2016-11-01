@@ -31,7 +31,7 @@ public class SearchController {
         this.daoTeacher = daoTeacher;
     }
 
-    @RequestMapping(value = "/jsp/search/FindGroupServ", method = RequestMethod.GET)
+    @RequestMapping(value = "/jsp/search/FindGroupServ", method = RequestMethod.POST)
     public String findGroup(@RequestParam("name") String groupName, Model model){
 
         List<Group> groups = new ArrayList<Group>();
@@ -47,11 +47,11 @@ public class SearchController {
         }catch(Exception e){
             e.printStackTrace();
         }finally{
-            return "/jsp/search/GroupsSearch.jsp";
+            return "search/GroupsSearch";
         }
     }
 
-    @RequestMapping(value = "/jsp/search/FindGroupByTeacherServ", method = RequestMethod.GET)
+    @RequestMapping(value = "/jsp/search/FindGroupByTeacherServ", method = RequestMethod.POST)
     public String findGroupByTeacher(@RequestParam("groupName") String groupName, Model model){
 
         try{
@@ -60,11 +60,11 @@ public class SearchController {
         }catch(Exception e){
             e.printStackTrace();
         }finally{
-            return "/jsp/search/GroupsSearchByTeacher.jsp";
+            return "search/GroupsSearchByTeacher";
         }
     }
 
-    @RequestMapping(value = "/jsp/search/FindStudentServ", method = RequestMethod.GET)
+    @RequestMapping(value = "/jsp/search/FindStudentServ", method = RequestMethod.POST)
     public String findStudent(@RequestParam("name") String name, @RequestParam("familyName")  String familyName,
                               Model model){
 
@@ -85,11 +85,11 @@ public class SearchController {
         }catch(Exception e){
             e.printStackTrace();
         }finally{
-            return "/jsp/search/StudentsSearch.jsp";
+            return "search/StudentsSearch";
         }
     }
 
-    @RequestMapping(value = "/jsp/search/FindTeacherServ", method = RequestMethod.GET)
+    @RequestMapping(value = "/jsp/search/FindTeacherServ", method = RequestMethod.POST)
     public String findTeacher(@RequestParam("name") String name, @RequestParam("familyName") String familyName,
                               Model model){
 
@@ -110,11 +110,11 @@ public class SearchController {
         }catch(Exception e){
             e.printStackTrace();
         }finally{
-            return "/jsp/search/TeachersSearch.jsp";
+            return "search/TeachersSearch";
         }
     }
 
-    @RequestMapping(value = "/jsp/search/TeachersByGroupServ", method = RequestMethod.GET)
+    @RequestMapping(value = "/jsp/search/TeachersByGroupServ", method = RequestMethod.POST)
     public String findTeacherByGroup(@RequestParam("groupName") String groupName, Model model){
 
         List<Teacher> teachers = new ArrayList<Teacher>();
@@ -127,7 +127,7 @@ public class SearchController {
         }catch(Exception e){
             e.printStackTrace();
         }finally{
-            return "/jsp/search/TeachersByGroup.jsp";
+            return "search/TeachersByGroup";
         }
     }
 }

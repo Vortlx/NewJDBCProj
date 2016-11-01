@@ -40,7 +40,7 @@ public class DeleteController {
             model.addAttribute("message", message);
         }finally{
             model.addAttribute("message", message);
-            return "/jsp/search/TeachersSearch.jsp";
+            return "search/TeachersSearch";
         }
     }
 
@@ -59,7 +59,7 @@ public class DeleteController {
             model.addAttribute("message", message);
         }finally{
             model.addAttribute("message", message);
-            return "/jsp/delete/DeleteGroup.jsp";
+            return "delete/DeleteGroup";
         }
     }
 
@@ -79,7 +79,7 @@ public class DeleteController {
             model.addAttribute("message", message);
         }finally{
             model.addAttribute("message", message);
-            return "/jsp/delete/DeleteStudent.jsp";
+            return "delete/DeleteStudent";
         }
     }
 
@@ -99,7 +99,7 @@ public class DeleteController {
             model.addAttribute("message", message);
         }finally{
             model.addAttribute("message", message);
-            return "/jsp/delete/DeleteTeacher.jsp";
+            return "delete/DeleteTeacher";
         }
     }
 }

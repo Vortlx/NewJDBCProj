@@ -34,7 +34,7 @@ public class UpdateController {
             message = "Can't do this operation.";
         }finally{
             model.addAttribute("message", message);
-            return "/jsp/search/StudentsSearch.jsp";
+            return "search/StudentsSearch";
         }
     }
 }

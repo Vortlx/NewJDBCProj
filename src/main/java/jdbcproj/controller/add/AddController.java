@@ -41,7 +41,7 @@ public class AddController {
 
         }finally{
             model.addAttribute("message", message);
-            return "/jsp/search/TeachersSearch.jsp";
+            return "search/TeachersSearch";
         }
     }
 
@@ -60,9 +60,8 @@ public class AddController {
             model.addAttribute("message", message);
         }finally{
             model.addAttribute("message", message);
-            return "/jsp/add/AddGroup.jsp";
+            return "add/AddGroup";
         }
-
     }
 
     @RequestMapping(value = "/jsp/add/AddStudentServ", method = RequestMethod.POST)
@@ -81,7 +80,7 @@ public class AddController {
             model.addAttribute("message", message);
         }finally{
             model.addAttribute("message", message);
-            return "/jsp/add/AddStudent.jsp";
+            return "add/AddStudent";
         }
     }
 
@@ -100,7 +99,7 @@ public class AddController {
             message = "Can't do this operation.";
         }finally{
             model.addAttribute("message", message);
-            return "/jsp/add/AddTeacher.jsp";
+            return "add/AddTeacher";
         }
     }
 }
