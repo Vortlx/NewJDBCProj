@@ -11,6 +11,7 @@ import java.util.Properties;
  * @author Lebedev Alexander
  * @since 2016-09-19
  * */
+@Deprecated
 public abstract class Resources {
 	
 	static private File file;
