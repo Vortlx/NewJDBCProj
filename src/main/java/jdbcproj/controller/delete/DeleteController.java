@@ -11,20 +11,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping(value="/NewJDBCProj/jsp/delete")
 public class DeleteController {
 
+    @Autowired
     private DAOGroup daoGroup;
+    
+    @Autowired
     private DAOStudent daoStudent;
+    
+    @Autowired
     private DAOTeacher daoTeacher;
 
-    @Autowired
-    public DeleteController(DAOGroup daoGroup, DAOStudent daoStudent, DAOTeacher daoTeacher){
-        this.daoGroup = daoGroup;
-        this.daoStudent = daoStudent;
-        this.daoTeacher = daoTeacher;
-    }
-
-    @RequestMapping(value = "/jsp/delete/DeleteCuratorServ", method = RequestMethod.POST)
+    
+    @RequestMapping(value = "/DeleteCuratorServ", method = RequestMethod.POST)
     public String deleteCurator(@RequestParam("teacherID") int teacherID, @RequestParam("groupName") String groupName,
                                 Model model){
 
@@ -44,7 +44,7 @@ public class DeleteController {
         }
     }
 
-    @RequestMapping(value = "/jsp/delete/DeleteGroupServ", method = RequestMethod.POST)
+    @RequestMapping(value = "/DeleteGroupServ", method = RequestMethod.POST)
     public String deleteGroup(@RequestParam("name") String groupName, Model model){
 
         String message = null;
@@ -63,7 +63,7 @@ public class DeleteController {
         }
     }
 
-    @RequestMapping(value = "/jsp/delete/DeleteStudentServ", method = RequestMethod.POST)
+    @RequestMapping(value = "/DeleteStudentServ", method = RequestMethod.POST)
     public String deleteStudent(@RequestParam("name") String name, @RequestParam("familyName") String familyName,
                                 Model model){
 
@@ -83,7 +83,7 @@ public class DeleteController {
         }
     }
 
-    @RequestMapping(value = "/jsp/delete/DeleteTeacherServ", method = RequestMethod.POST)
+    @RequestMapping(value = "/DeleteTeacherServ", method = RequestMethod.POST)
     public String deleteTeacher(@RequestParam("name") String name, @RequestParam("familyName") String familyName,
                                 Model model){
 

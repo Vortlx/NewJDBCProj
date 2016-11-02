@@ -11,21 +11,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 @Controller
+@RequestMapping(value="/NewJDBCProj/jsp/add")
 public class AddController {
 
+    @Autowired
     private DAOGroup daoGroup;
+    
+    @Autowired
     private DAOStudent daoStudent;
+    
+    @Autowired
     private DAOTeacher daoTeacher;
 
-    @Autowired
-    public AddController(DAOGroup daoGroup, DAOStudent daoStudent, DAOTeacher daoTeacher){
-        this.daoGroup = daoGroup;
-        this.daoStudent = daoStudent;
-        this.daoTeacher = daoTeacher;
-    }
-
-    @RequestMapping(value = "/jsp/add/AddCuratorServ", method = RequestMethod.POST)
+    
+    @RequestMapping(value = "/AddCuratorServ", method = RequestMethod.POST)
     public String addCurator(@RequestParam("teacherID") int teacherID,
                              @RequestParam("groupName") String groupName, Model model){
 
@@ -45,7 +46,7 @@ public class AddController {
         }
     }
 
-    @RequestMapping(value = "/jsp/add/AddGroupServ", method = RequestMethod.POST)
+    @RequestMapping(value = "/AddGroupServ", method = RequestMethod.POST)
     public String addGroup(@RequestParam("name") String groupName, Model model){
 
         String message = null;
@@ -64,7 +65,7 @@ public class AddController {
         }
     }
 
-    @RequestMapping(value = "/jsp/add/AddStudentServ", method = RequestMethod.POST)
+    @RequestMapping(value = "/AddStudentServ", method = RequestMethod.POST)
     public String addStudent(@RequestParam("name") String name, @RequestParam("familyName") String familyName,
                              @RequestParam("group") String groupName, Model model){
 
@@ -84,7 +85,7 @@ public class AddController {
         }
     }
 
-    @RequestMapping(value = "/jsp/add/AddTeacherServ", method = RequestMethod.POST)
+    @RequestMapping(value = "/AddTeacherServ", method = RequestMethod.POST)
     public String addTeacher(@RequestParam("name") String name, @RequestParam("familyName") String familyName,
                              Model model){
 

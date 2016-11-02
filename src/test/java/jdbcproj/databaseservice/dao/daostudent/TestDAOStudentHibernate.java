@@ -18,6 +18,7 @@ import jdbcproj.databaseservice.hibernateutil.HibernateUtil;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+
 public class TestDAOStudentHibernate {
 
     private static final ApplicationContext context = new ClassPathXmlApplicationContext("spring/Spring.cfg.xml");

@@ -10,16 +10,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping(value="/NewJDBCProj/jsp/update")
 public class UpdateController {
 
+    @Autowired
     private DAOStudent daoStudent;
 
-    @Autowired
-    public UpdateController(DAOStudent daoStudent){
-        this.daoStudent = daoStudent;
-    }
-
-    @RequestMapping(value = "/jsp/update/ChangeGroupServ", method = RequestMethod.POST)
+    @RequestMapping(value = "/ChangeGroupServ", method = RequestMethod.POST)
     public String changeGroup(@RequestParam("studentID") int studentID, @RequestParam("newGroupName") String newGroupName,
                               Model model){
 
