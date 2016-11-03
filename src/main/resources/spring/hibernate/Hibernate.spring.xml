@@ -16,9 +16,9 @@
 
         <property name="annotatedClasses">
             <list>
-                <value>jdbcproj.data.Group</value>
-                <value>jdbcproj.data.Student</value>
-                <value>jdbcproj.data.Teacher</value>
+                <value>prework.data.Group</value>
+                <value>prework.data.Student</value>
+                <value>prework.data.Teacher</value>
             </list>
         </property>
     </bean>

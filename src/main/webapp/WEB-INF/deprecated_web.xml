@@ -5,62 +5,62 @@
 
     <servlet>
         <servlet-name>FindStudent</servlet-name>
-        <servlet-class>jdbcproj.controller.search.FindStudent</servlet-class>
+        <servlet-class>prework.controller.search.FindStudent</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>FindTeacher</servlet-name>
-        <servlet-class>jdbcproj.controller.search.FindTeacher</servlet-class>
+        <servlet-class>prework.controller.search.FindTeacher</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>FindGroup</servlet-name>
-        <servlet-class>jdbcproj.controller.search.FindGroup</servlet-class>
+        <servlet-class>prework.controller.search.FindGroup</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>FindGroupByTeacher</servlet-name>
-        <servlet-class>jdbcproj.controller.search.FindGroupByTeacher</servlet-class>
+        <servlet-class>prework.controller.search.FindGroupByTeacher</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>TeachersByGroup</servlet-name>
-        <servlet-class>jdbcproj.controller.search.FindTeachersByGroup</servlet-class>
+        <servlet-class>prework.controller.search.FindTeachersByGroup</servlet-class>
     </servlet>
     
     <servlet>
         <servlet-name>DeleteGroup</servlet-name>
-        <servlet-class>jdbcproj.controller.delete.DeleteGroup</servlet-class>
+        <servlet-class>prework.controller.delete.DeleteGroup</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeleteStudent</servlet-name>
-        <servlet-class>jdbcproj.controller.delete.DeleteStudent</servlet-class>
+        <servlet-class>prework.controller.delete.DeleteStudent</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeleteTeacher</servlet-name>
-        <servlet-class>jdbcproj.controller.delete.DeleteTeacher</servlet-class>
+        <servlet-class>prework.controller.delete.DeleteTeacher</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeleteCurator</servlet-name>
-        <servlet-class>jdbcproj.controller.delete.DeleteCurator</servlet-class>
+        <servlet-class>prework.controller.delete.DeleteCurator</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>AddTeacher</servlet-name>
-        <servlet-class>jdbcproj.controller.add.AddTeacher</servlet-class>
+        <servlet-class>prework.controller.add.AddTeacher</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddStudent</servlet-name>
-        <servlet-class>jdbcproj.controller.add.AddStudent</servlet-class>
+        <servlet-class>prework.controller.add.AddStudent</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddGroup</servlet-name>
-        <servlet-class>jdbcproj.controller.add.AddGroup</servlet-class>
+        <servlet-class>prework.controller.add.AddGroup</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddCurator</servlet-name>
-        <servlet-class>jdbcproj.controller.add.AddCurator</servlet-class>
+        <servlet-class>prework.controller.add.AddCurator</servlet-class>
     </servlet>
     
     <servlet>
         <servlet-name>ChangeGroup</servlet-name>
-        <servlet-class>jdbcproj.controller.update.ChangeGroup</servlet-class>
+        <servlet-class>prework.controller.update.ChangeGroup</servlet-class>
     </servlet>
 
 
