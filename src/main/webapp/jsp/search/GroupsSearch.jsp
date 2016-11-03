@@ -32,7 +32,7 @@
                     </c:when>
                     <c:when test="${group.students.size() == 0}">
                         <td>
-                            <a name="toTeachers" href="./TeachersByGroupServ.jsp?groupName=${group.name}">${group.name}</a>
+                            <a name="toTeachers" href="./TeachersByGroupServ?groupName=${group.name}">${group.name}</a>
                         </td>
                         <td> </td>
                         <td> </td>

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping(value="/NewJDBCProj/jsp/delete")
+@RequestMapping(value="/jsp/delete")
 public class DeleteController {
 
     @Autowired
@@ -32,15 +32,10 @@ public class DeleteController {
 
         try{
             daoTeacher.deleteCurator(teacherID, groupName);
-            message = "Operation was success";
         }catch(Exception e){
             e.printStackTrace();
-
-            message = "Can't do this operation.";
-            model.addAttribute("message", message);
         }finally{
-            model.addAttribute("message", message);
-            return "search/TeachersSearch";
+            return "../search/TeachersSearch";
         }
     }
 
@@ -56,10 +51,9 @@ public class DeleteController {
             e.printStackTrace();
 
             message = "Can't do this operation.";
-            model.addAttribute("message", message);
         }finally{
             model.addAttribute("message", message);
-            return "delete/DeleteGroup";
+            return "DeleteGroup";
         }
     }
 
@@ -76,10 +70,9 @@ public class DeleteController {
             e.printStackTrace();
 
             message = "Can't do this operation.";
-            model.addAttribute("message", message);
         }finally{
             model.addAttribute("message", message);
-            return "delete/DeleteStudent";
+            return "DeleteStudent";
         }
     }
 
@@ -96,10 +89,9 @@ public class DeleteController {
             e.printStackTrace();
 
             message = "Can't do this operation.";
-            model.addAttribute("message", message);
         }finally{
             model.addAttribute("message", message);
-            return "delete/DeleteTeacher";
+            return "DeleteTeacher";
         }
     }
 }

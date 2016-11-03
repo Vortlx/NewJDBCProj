@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
-@RequestMapping(value="/NewJDBCProj/jsp/add")
+@RequestMapping(value="/jsp/add")
 public class AddController {
 
     @Autowired
@@ -30,20 +30,19 @@ public class AddController {
     public String addCurator(@RequestParam("teacherID") int teacherID,
                              @RequestParam("groupName") String groupName, Model model){
 
-        String message = null;
-
         try{
             daoTeacher.addGroup(teacherID, groupName);
-            message = "Operation was success";
         }catch(Exception e){
             e.printStackTrace();
 
+            String message = null;
             message = "Can't do this operation.";
-
-        }finally{
             model.addAttribute("message", message);
-            return "search/TeachersSearch";
+
+            return "../add/AddCurator";
         }
+
+        return "../search/TeachersSearch";
     }
 
     @RequestMapping(value = "/AddGroupServ", method = RequestMethod.POST)
@@ -58,10 +57,9 @@ public class AddController {
             e.printStackTrace();
 
             message = "Can't do this operation.";
-            model.addAttribute("message", message);
         }finally{
             model.addAttribute("message", message);
-            return "add/AddGroup";
+            return "AddGroup";
         }
     }
 
@@ -78,10 +76,9 @@ public class AddController {
             e.printStackTrace();
 
             message = "Can't do this operation.";
-            model.addAttribute("message", message);
         }finally{
             model.addAttribute("message", message);
-            return "add/AddStudent";
+            return "AddStudent";
         }
     }
 
@@ -100,7 +97,7 @@ public class AddController {
             message = "Can't do this operation.";
         }finally{
             model.addAttribute("message", message);
-            return "add/AddTeacher";
+            return "AddTeacher";
         }
     }
 }

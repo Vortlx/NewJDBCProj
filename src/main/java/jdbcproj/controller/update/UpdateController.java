@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping(value="/NewJDBCProj/jsp/update")
+@RequestMapping(value="/jsp/update")
 public class UpdateController {
 
     @Autowired
@@ -24,14 +24,15 @@ public class UpdateController {
 
         try{
             daoStudent.updateGroup(studentID, newGroupName);
-            message = "Operation was success";
         }catch(Exception e){
             e.printStackTrace();
 
             message = "Can't do this operation.";
-        }finally{
             model.addAttribute("message", message);
-            return "search/StudentsSearch";
+
+            return "./ChangeGroup";
         }
+
+        return "../search/StudentsSearch";
     }
 }

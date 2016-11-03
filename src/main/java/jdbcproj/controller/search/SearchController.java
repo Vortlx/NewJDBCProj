@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping(value="/NewJDBCProj/jsp/search")
+@RequestMapping(value="/jsp/search")
 public class SearchController {
 
     @Autowired
@@ -47,11 +47,11 @@ public class SearchController {
         }catch(Exception e){
             e.printStackTrace();
         }finally{
-            return "search/GroupsSearch";
+            return "GroupsSearch";
         }
     }
 
-    @RequestMapping(value = "/FindGroupByTeacherServ", method = RequestMethod.POST)
+    @RequestMapping(value = "/FindGroupByTeacherServ", method = RequestMethod.GET)
     public String findGroupByTeacher(@RequestParam("groupName") String groupName, Model model){
 
         try{
@@ -60,7 +60,7 @@ public class SearchController {
         }catch(Exception e){
             e.printStackTrace();
         }finally{
-            return "search/GroupsSearchByTeacher";
+            return "GroupsSearchByTeacher";
         }
     }
 
@@ -85,7 +85,7 @@ public class SearchController {
         }catch(Exception e){
             e.printStackTrace();
         }finally{
-            return "search/StudentsSearch";
+            return "StudentsSearch";
         }
     }
 
@@ -110,11 +110,11 @@ public class SearchController {
         }catch(Exception e){
             e.printStackTrace();
         }finally{
-            return "search/TeachersSearch";
+            return "TeachersSearch";
         }
     }
 
-    @RequestMapping(value = "/TeachersByGroupServ", method = RequestMethod.POST)
+    @RequestMapping(value = "/TeachersByGroupServ", method = RequestMethod.GET)
     public String findTeacherByGroup(@RequestParam("groupName") String groupName, Model model){
 
         List<Teacher> teachers = new ArrayList<Teacher>();
@@ -127,7 +127,7 @@ public class SearchController {
         }catch(Exception e){
             e.printStackTrace();
         }finally{
-            return "search/TeachersByGroup";
+            return "TeachersByGroup";
         }
     }
 }

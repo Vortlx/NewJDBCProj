@@ -24,15 +24,17 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main{
 	public static void main(String[] args){
 
-		ApplicationContext context = new ClassPathXmlApplicationContext("Spring.cfg.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring\\Spring.cfg.xml");
 
 	    DAOTeacher daoTeacher = (DAOTeacher)context.getBean("daoTeacherHibernate");
 		DAOGroup daoGroup = (DAOGroup)context.getBean("daoGroupHibernate");
 		DAOStudent daoStudent = (DAOStudent)context.getBean("daoStudentHibernate");
 
 	    try{
-	        List<Teacher> teachers = daoTeacher.getByGroup("111");
-	        
+	        List<Teacher> teachers = daoTeacher.getByGroup("666");
+
+			System.out.println("Test");
+
 	        for(Teacher teacher: teachers){
 	            System.out.println(teacher.getName() + " " + teacher.getFamilyName());
 	        }

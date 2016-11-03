@@ -14,7 +14,6 @@
     <context:component-scan base-package="jdbcproj.controller"/>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 

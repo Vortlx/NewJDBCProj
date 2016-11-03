@@ -68,10 +68,12 @@ public class DAOStudentHibernate implements DAOStudent{
         Group newGroup = (Group) query.getSingleResult();
         
         Student student = session.get(Student.class, studentID);
-        student.setGroup(newGroup);
-        
-        session.update(student);
-        
+
+        if(!student.getGroup().equals(newGroup)){
+            student.setGroup(newGroup);
+            session.update(student);
+        }
+
         session.getTransaction().commit();
     }
 
